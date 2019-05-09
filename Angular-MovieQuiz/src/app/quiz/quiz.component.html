@@ -1,0 +1,8 @@
+<section class="moovie" *ngFor="let movie of getNumberOfMovies(5)">
+  <form method="post" name="moovie">
+    <app-clues></app-clues>
+    <app-options></app-options>
+    <app-results></app-results>
+    {{ getNumberOfMovies(3) }}
+  </form>
+</section>
