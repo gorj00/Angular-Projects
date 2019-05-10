@@ -1,9 +1,8 @@
 <section
   class="moovie"
-  *ngFor="let i of numToArray(numsOfMovies)"
-  >
+  *ngFor="let i of numToArray(numsOfMovies)">
   <form >
-    <app-clues [numOfMov]="i"></app-clues>
+    <app-clues [singleMovNum]="i"></app-clues>
     <app-options></app-options>
     <app-results></app-results>
   </form>

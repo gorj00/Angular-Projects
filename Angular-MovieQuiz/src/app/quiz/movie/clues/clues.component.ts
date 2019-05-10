@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./clues.component.css']
 })
 export class CluesComponent implements OnInit {
-  @Input() numOfMov: number;
+  @Input() singleMovNum: number;
 
   constructor() { }
 
