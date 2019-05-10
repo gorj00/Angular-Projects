@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+  /**
+   * Number of movies that is supposed to be displayed
+   */
+  numsOfMovies = 5;
 
   constructor() { }
 
@@ -17,7 +21,7 @@ export class QuizComponent implements OnInit {
    * @returns     numbers array
    * @example     [1, 2, 3] for param(num) = 3
    */
-  getNumberOfMovies(num: number): number[] {
+  numToArray(num: number): number[] {
     /* Creates array filled with the number, then takes their key
        and creates an array out of them, then increments them by 1 */
     return [...Array(num).keys()].map(item => item + 1);

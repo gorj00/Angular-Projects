@@ -6,6 +6,8 @@ import { QuizComponent } from './quiz/quiz.component';
 import { CluesComponent } from './quiz/movie/clues/clues.component';
 import { OptionsComponent } from './quiz/movie/options/options.component';
 import { ResultsComponent } from './quiz/results/results.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,10 @@ import { ResultsComponent } from './quiz/results/results.component';
     ResultsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

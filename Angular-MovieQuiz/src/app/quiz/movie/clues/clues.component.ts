@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-clues',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clues.component.css']
 })
 export class CluesComponent implements OnInit {
+  @Input() numOfMov: number;
 
   constructor() { }
 

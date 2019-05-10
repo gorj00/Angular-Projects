@@ -1,8 +1,10 @@
-<section class="moovie" *ngFor="let movie of getNumberOfMovies(5)">
-  <form method="post" name="moovie">
-    <app-clues></app-clues>
+<section
+  class="moovie"
+  *ngFor="let i of numToArray(numsOfMovies)"
+  >
+  <form >
+    <app-clues [numOfMov]="i"></app-clues>
     <app-options></app-options>
     <app-results></app-results>
-    {{ getNumberOfMovies(3) }}
   </form>
 </section>
