@@ -4,6 +4,6 @@
     <span class="director3">Director:</span>
     <span class="actors3">Actors:</span>
     <div class="images3">
-        <!-- Render images -->
+        <img *ngFor="let imgUrl of cluesImgs" [src]="imgUrl">
     </div>
 </div>
