@@ -28,8 +28,8 @@ export class CluesComponent implements OnInit {
         const imgObjects = response[nestedPath[0]][nestedPath[1]].slice(0, 4);
 
         // Extracting images URLs and storing them in an instance array
-        imgObjects.map(image => this.cluesImgs.push('http://image.tmdb.org/t/p/w185'
-          + image[nestedPath[2]]));
+        imgObjects.map(image => this.cluesImgs
+          .push('http://image.tmdb.org/t/p/w185' + image[nestedPath[2]]));
 
         console.log(this.cluesImgs);
       },
