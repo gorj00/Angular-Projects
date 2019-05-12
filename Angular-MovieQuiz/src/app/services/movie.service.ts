@@ -8,7 +8,7 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  getMovObjects(value: number) {
+  getMovProperties(value: number) {
       return this.http.get(this.baseUrl + 'movie/' + value + this.apiKey +
         '&language=en-US' +
         '&append_to_response=images' +

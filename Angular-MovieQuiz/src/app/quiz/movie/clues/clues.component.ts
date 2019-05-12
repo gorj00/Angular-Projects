@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MovieService } from 'src/app/services/movie.service';
+import { Config } from 'protractor';
 
 @Component({
   selector: 'app-clues',
@@ -15,22 +16,21 @@ export class CluesComponent implements OnInit {
 
   /**
    * Gets the movie's 4 image URLs
+   *
+   * Movie object image URLs location:
+   * Fetched Data → images → backdrops → file_path
    */
   // trying out Avengers Endgame ID 299534
   getImages() {
-    this.movieService.getMovObjects(299534)
+    this.movieService.getMovProperties(299534)
       .subscribe(
-        (response: Response) => {
-
-          // Movie object image URLs location: Fetched Data → images → backdrops → file_path
-          const nestedPath: string[] = ['images', 'backdrops', 'file_path'];
-
-          // Storing the first four movie objects into an array
-          const imgObjects = response[nestedPath[0]][nestedPath[1]].slice(0, 4);
+        (response: Config) => {
+          // Storing the first four movie image objects into an array
+          const imgObjects = response.images.backdrops.slice(0, 4);
 
           // Extracting images URLs and storing them in an instance array
           imgObjects.map(image => this.cluesImgs
-            .push('http://image.tmdb.org/t/p/w185' + image[nestedPath[2]])
+            .push('http://image.tmdb.org/t/p/w185' + image.file_path)
             );
 
           console.log(this.cluesImgs);
