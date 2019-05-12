@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class MoviePickerService {
-  movies: number[][] = [];
+  moviesPicks: number[][] = [];
 
   constructor() {}
 
@@ -47,22 +47,22 @@ export class MoviePickerService {
 
     // Pick five times ...
     for (let i = 0; i < 5; i++) {
-      this.movies[i] = [];
+      this.moviesPicks[i] = [];
       // (increment the range of the set by 20 unless it's the first iteration)
       if (i !== 0) {
         min += 20;
         max += 20;
       }
       // ... three unique movies ...
-      while (this.movies[i].length < 3) {
+      while (this.moviesPicks[i].length < 3) {
         // ... from a unique set of twenty movies.
         const moviePicked = this.randomMovieNum(min, max);
         // If the random movie was already picked, start again ...
-        if (this.movies[i].includes(moviePicked)) {
+        if (this.moviesPicks[i].includes(moviePicked)) {
             continue;
           }
           // ... if it hasn't been picked yet, store it in array.
-        this.movies[i].push(moviePicked);
+        this.moviesPicks[i].push(moviePicked);
       } // while end
     } // for end
   }
