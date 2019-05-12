@@ -10,11 +10,11 @@ export class MoviePickerService {
    * Method returns a random number in a given interval, this number will
    * represent the position of the movie in a movie list.
    *
-   * It is due to the movie DB, that can generate only 20 movies per one GET
+   * It is due to the movie DB, since it can generate only 20 movies per one GET
    * request, this method will help generate three random movies from five sets
-   * of movie lists (one movie lists holds 20 movies)
+   * of movie lists (one movie list holds 20 unique movies)
    *
-   * @returns   one random number out of twenty numbers
+   * @returns   one random number in the given range
    */
   randomMovieNum(min: number, max: number): number {
     min = Math.ceil(min);
@@ -32,7 +32,7 @@ export class MoviePickerService {
    * and 1 movie as correct answer
    */
   pickMovies() {
-    /* Range of the sets of movies, the sets will be (increment with i by 20):
+    /* Range of the sets of movie objects, the sets will be (increment with i by 20):
         - 0 - 19,
         - 20 - 39,
         - 40 - 59,
@@ -51,13 +51,13 @@ export class MoviePickerService {
       }
       // ... three unique movies ...
       while (this.movies[i].length < 3) {
-        // ... from a unique set of twenty movies ...
+        // ... from a unique set of twenty movies.
         const moviePicked = this.randomMovieNum(min, max);
         // If the random movie was already picked, start again ...
         if (this.movies[i].includes(moviePicked)) {
             continue;
           }
-          // ... if it wasn't, store it in array
+          // ... if it hasn't been picked yet, store it in array.
         this.movies[i].push(moviePicked);
       } // while end
     } // for end
