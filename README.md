@@ -6,4 +6,6 @@
   - external API ([The Movie DB](https://www.themoviedb.org/))
   - HttpClient
   - Observables
+  - Dependency Injection
+  - Singleton
   - Animations
