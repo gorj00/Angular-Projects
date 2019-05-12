@@ -29,15 +29,24 @@ export class MoviePickerService {
    *
    * Each of picks (out of 5 in total) contains 2 movies for a incorrect answer
    * and 1 movie as correct answer
+   *
+   * @example   this.movies = [
+   *              [ 2, 15, 12]
+   *              [24, 30, 36]
+   *              [48, 51, 56]
+   *              [72, 63, 69]
+   *              [85, 99, 92]
+   *            ]
+   *
    */
-  pickMovies() {
+  pickMoviesMatrix() {
     /* Range of the sets of movie objects,
-       the sets will be (increment with i by 20):
-        - 0 - 19,
-        - 20 - 39,
-        - 40 - 59,
-        - 60 - 79,
-        - 80 - 99 */
+       the ranges will be incremented with a below loop's i by 20):
+        -  0 - 19 (i = 0),
+        - 20 - 39 (i = 1),
+        - 40 - 59 (i = 2),
+        - 60 - 79 (i = 3),
+        - 80 - 99 (i = 4)  */
     let min = 0;
     let max = 19;
 

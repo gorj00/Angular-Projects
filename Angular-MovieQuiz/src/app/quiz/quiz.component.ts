@@ -32,7 +32,7 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.moviePickerService.pickMovies();
+    this.moviePickerService.pickMoviesMatrix();
   }
 
 }
