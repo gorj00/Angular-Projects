@@ -44,8 +44,8 @@ export class MovieService {
           }
           // ... if it wasn't, store it in array
         this.movies[i].push(moviePicked);
-      } // while
-    } // for
+      } // while end
+    } // for end
     console.log(this.movies);
   }
 
