@@ -41,12 +41,7 @@ export class MoviePickerService {
    */
   pickMoviesMatrix() {
     /* Range of the sets of movie objects,
-       the ranges will be incremented with a below loop's i by 20):
-        -  0 - 19 (i = 0),
-        - 20 - 39 (i = 1),
-        - 40 - 59 (i = 2),
-        - 60 - 79 (i = 3),
-        - 80 - 99 (i = 4)  */
+       the ranges will be incremented with a below loop's i by 20) */
     let min = 0;
     let max = 19;
 
