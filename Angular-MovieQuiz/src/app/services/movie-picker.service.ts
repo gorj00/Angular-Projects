@@ -45,7 +45,7 @@ export class MoviePickerService {
     // Pick five times ...
     for (let i = 0; i < 5; i++) {
       this.movies[i] = [];
-      // (don't increment by 20 for the first iteration ( i = 0))
+      // (increment the range of the set by 20 unless it's the first iteration)
       if (i !== 0) {
         min += 20;
         max += 20;
