@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class MoviePickerService {
   moviesPicks: number[][] = [];
+  moviesGuessed: number[] =[];
 
   constructor() {}
 
@@ -38,7 +39,7 @@ export class MoviePickerService {
    *              [85, 99, 92]
    *            ]
    */
-  pickMoviesMatrix() {
+  pickMoviesMatrix(): void {
     /* Range of the sets of movie objects,
        the ranges will be incremented with a below loop's i by 20) */
     let min = 0;
@@ -66,4 +67,8 @@ export class MoviePickerService {
     } // for end
   }
 
+  // TODO pick the correct movie out of the matrix's rows
+  // pickMoviesGuessed(matrix: () => void): void {
+
+  // }
 }
