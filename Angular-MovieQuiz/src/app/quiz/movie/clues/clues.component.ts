@@ -18,23 +18,24 @@ export class CluesComponent implements OnInit {
    */
   // trying out Avengers Endgame ID 299534
   getImages() {
-    this.movieService.getMovObjects(299534).subscribe(
-      (response: Response) => {
+    this.movieService.getMovObjects(299534)
+      .subscribe(
+        (response: Response) => {
 
-        // Movie object image URLs location: Fetched Data → images → backdrops → file_path
-        const nestedPath: string[] = ['images', 'backdrops', 'file_path'];
+          // Movie object image URLs location: Fetched Data → images → backdrops → file_path
+          const nestedPath: string[] = ['images', 'backdrops', 'file_path'];
 
-        // Storing the first four movie objects into an array
-        const imgObjects = response[nestedPath[0]][nestedPath[1]].slice(0, 4);
+          // Storing the first four movie objects into an array
+          const imgObjects = response[nestedPath[0]][nestedPath[1]].slice(0, 4);
 
-        // Extracting images URLs and storing them in an instance array
-        imgObjects.map(image => this.cluesImgs
-          .push('http://image.tmdb.org/t/p/w185' + image[nestedPath[2]])
-          );
+          // Extracting images URLs and storing them in an instance array
+          imgObjects.map(image => this.cluesImgs
+            .push('http://image.tmdb.org/t/p/w185' + image[nestedPath[2]])
+            );
 
-        console.log(this.cluesImgs);
-      },
-      error => console.log(error)
+          console.log(this.cluesImgs);
+        },
+        error => console.log(error)
     );
   }
 
