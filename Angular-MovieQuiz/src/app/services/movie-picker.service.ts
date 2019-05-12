@@ -32,7 +32,8 @@ export class MoviePickerService {
    * and 1 movie as correct answer
    */
   pickMovies() {
-    /* Range of the sets of movie objects, the sets will be (increment with i by 20):
+    /* Range of the sets of movie objects,
+       the sets will be (increment with i by 20):
         - 0 - 19,
         - 20 - 39,
         - 40 - 59,
