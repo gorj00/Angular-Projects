@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class MovieService {
+export class MoviePickerService {
   movies: number[][] = [];
-  baseUrl = 'https://api.themoviedb.org/3/';
-  apiKey = '?api_key=a5357212f9c747dac679fc5ab1aa7ca9';
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   /**
    * Method returns a random number in a given interval, this number will
@@ -25,19 +22,37 @@ export class MovieService {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+
+  /**
+   * Method picks five times 3 random movies from a unique set of 20 movies,
+   * all together, 15 movies will be picked out of 100 options of most recently
+   * successful movies
+   *
+   * Each of picks (out of 5 in total) contains 2 movies for a incorrect answer
+   * and 1 movie as correct answer
+   */
   pickMovies() {
-    const min = 0;
-    const max = 19;
+    /* Range of the sets of movies, the sets will be (increment with i by 20):
+        - 0 - 19,
+        - 20 - 39,
+        - 40 - 59,
+        - 60 - 79,
+        - 80 - 99 */
+    let min = 0;
+    let max = 19;
 
     // Pick five times ...
     for (let i = 0; i < 5; i++) {
-      const j = i + 1;
       this.movies[i] = [];
-      // ... three unique movies
+      // (don't increment by 20 for the first iteration ( i = 0))
+      if (i !== 0) {
+        min += 20;
+        max += 20;
+      }
+      // ... three unique movies ...
       while (this.movies[i].length < 3) {
         // ... from a unique set of twenty movies ...
-        // TODO fix multiple by 0 with min problem
-        const moviePicked = this.randomMovieNum(min * j, max * j);
+        const moviePicked = this.randomMovieNum(min, max);
         // If the random movie was already picked, start again ...
         if (this.movies[i].includes(moviePicked)) {
             continue;
@@ -46,20 +61,6 @@ export class MovieService {
         this.movies[i].push(moviePicked);
       } // while end
     } // for end
-    console.log(this.movies);
   }
 
-  /**
-   * Extracts movie object with its images with the movie ID
-   *
-   * @param   movieId   ID of the movie used to identify the movie object
-   * @returns           JSON object movie with its properties
-   */
-  getMovObjects(movieId: number) {
-      return this.http.get(this.baseUrl + 'movie/' + movieId + this.apiKey +
-        '&language=en-US' +
-        '&append_to_response=images' +
-        '&include_image_language=en,' +
-        'null');
-  }
 }

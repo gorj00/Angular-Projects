@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MovieService } from 'src/app/services/movie.service';
+import { MovieContentService } from 'src/app/services/movie-content.service';
 import { Config } from 'protractor';
 
 @Component({
@@ -11,7 +11,7 @@ export class CluesComponent implements OnInit {
   @Input() singleMovNum: number;
   cluesImgs: string[] = [];
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieContentService: MovieContentService) { }
 
   /**
    * Gets the movie's 4 image URLs
@@ -21,7 +21,7 @@ export class CluesComponent implements OnInit {
    */
   // trying out Avengers Endgame ID 299534
   getImages() {
-    this.movieService.getMovObjects(299534)
+    this.movieContentService.getMovObjects(299534)
       .subscribe(
         (response: Config) => {
           // Storing the first four movie image objects into an array

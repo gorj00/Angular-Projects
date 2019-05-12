@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from 'src/app/services/movie.service';
+import { MoviePickerService } from 'src/app/services/movie-picker.service';
+import { MovieContentService } from 'src/app/services/movie-content.service';
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css'],
-  providers: [MovieService]
+  providers: [MoviePickerService, MovieContentService]
 })
 export class QuizComponent implements OnInit {
   /**
@@ -13,7 +14,8 @@ export class QuizComponent implements OnInit {
    */
   numsOfMovies = 5;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private moviePickerService: MoviePickerService,
+              private movieContentService: MovieContentService) { }
 
   /**
    * Method returns an array of numbers starting from 1 to param(num)
@@ -30,7 +32,7 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieService.pickMovies();
+    this.moviePickerService.pickMovies();
   }
 
 }
