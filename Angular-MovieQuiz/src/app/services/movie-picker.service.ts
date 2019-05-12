@@ -30,7 +30,7 @@ export class MoviePickerService {
    * Each of picks (out of 5 in total) contains 2 movies for a incorrect answer
    * and 1 movie as correct answer
    *
-   * @example   this.movies = [
+   * @example   this.moviesPicks = [
    *              [ 2, 15, 12]
    *              [24, 30, 36]
    *              [48, 51, 56]
