@@ -21,7 +21,7 @@ export class CluesComponent implements OnInit {
     this.movieService.getMovObjects(299534).subscribe(
       (response: Response) => {
 
-        // Movie object image URLs location: Fetched Data → images → backdrops →file_path
+        // Movie object image URLs location: Fetched Data → images → backdrops → file_path
         const nestedPath: string[] = ['images', 'backdrops', 'file_path'];
 
         // Storing the first four movie objects into an array
