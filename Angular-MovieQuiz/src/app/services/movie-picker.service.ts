@@ -67,7 +67,7 @@ export class MoviePickerService {
     } // for end
   }
 
-  // TODO pick the correct movie out of the matrix's rows
+  // TODO pick the correct movies out of the matrix's rows
   // pickMoviesGuessed(matrix: () => void): void {
 
   // }
