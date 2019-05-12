@@ -37,7 +37,6 @@ export class MoviePickerService {
    *              [72, 63, 69]
    *              [85, 99, 92]
    *            ]
-   *
    */
   pickMoviesMatrix() {
     /* Range of the sets of movie objects,
@@ -45,7 +44,7 @@ export class MoviePickerService {
     let min = 0;
     let max = 19;
 
-    // Pick five times ...
+    // Pick five times (five rows) ...
     for (let i = 0; i < 5; i++) {
       this.moviesPicks[i] = [];
       // (increment the range of the set by 20 unless it's the first iteration)
@@ -53,7 +52,7 @@ export class MoviePickerService {
         min += 20;
         max += 20;
       }
-      // ... three unique movies ...
+      // ... three unique movies (three items per row) ...
       while (this.moviesPicks[i].length < 3) {
         // ... from a unique set of twenty movies.
         const moviePicked = this.randomMovieNum(min, max);
@@ -61,7 +60,7 @@ export class MoviePickerService {
         if (this.moviesPicks[i].includes(moviePicked)) {
             continue;
           }
-          // ... if it hasn't been picked yet, store it in array.
+          // ... if it hasn't been picked yet, it can be stored in array.
         this.moviesPicks[i].push(moviePicked);
       } // while end
     } // for end
