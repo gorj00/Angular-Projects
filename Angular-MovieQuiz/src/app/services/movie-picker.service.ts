@@ -22,7 +22,6 @@ export class MoviePickerService {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-
   /**
    * Method picks five times 3 random movies from a unique set of 20 movies,
    * all together, 15 movies will be picked out of 100 options of most recently
