@@ -28,7 +28,7 @@ export class CluesComponent implements OnInit {
           // Storing the first four movie image objects into an array
           const imgObjects = response.images.backdrops.slice(0, 4);
 
-          // Extracting images URLs and storing them in an instance array
+          // Extracting the images URLs and storing them in an instance array
           imgObjects.map(image => this.cluesImgs
             .push('http://image.tmdb.org/t/p/w185' + image.file_path)
             );
