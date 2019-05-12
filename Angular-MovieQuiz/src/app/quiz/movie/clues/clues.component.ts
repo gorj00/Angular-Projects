@@ -5,8 +5,7 @@ import { Config } from 'protractor';
 @Component({
   selector: 'app-clues',
   templateUrl: './clues.component.html',
-  styleUrls: ['./clues.component.css'],
-  providers: [MovieService]
+  styleUrls: ['./clues.component.css']
 })
 export class CluesComponent implements OnInit {
   @Input() singleMovNum: number;
@@ -22,7 +21,7 @@ export class CluesComponent implements OnInit {
    */
   // trying out Avengers Endgame ID 299534
   getImages() {
-    this.movieService.getMovProperties(299534)
+    this.movieService.getMovObjects(299534)
       .subscribe(
         (response: Config) => {
           // Storing the first four movie image objects into an array

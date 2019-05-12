@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.css']
+  styleUrls: ['./quiz.component.css'],
+  providers: [MovieService]
 })
 export class QuizComponent implements OnInit {
   /**
@@ -11,7 +13,7 @@ export class QuizComponent implements OnInit {
    */
   numsOfMovies = 5;
 
-  constructor() { }
+  constructor(private movieService: MovieService) { }
 
   /**
    * Method returns an array of numbers starting from 1 to param(num)
@@ -28,6 +30,7 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.movieService.pickMovies();
   }
 
 }

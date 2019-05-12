@@ -7,5 +7,4 @@
   - HttpClient
   - Observables
   - Dependency Injection
-  - Singleton
   - Animations
