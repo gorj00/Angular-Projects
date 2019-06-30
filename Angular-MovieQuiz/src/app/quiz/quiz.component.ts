@@ -32,7 +32,14 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit() {
+    // On every load, make a new quiz
     this.moviePickerService.pickMoviesMatrix();
+    this.moviePickerService
+    .moviesToGuess(this.moviePickerService.moviesPicks);
+
+    // Check the movies chosen
+    console.log(this.moviePickerService.moviesPicks);
+    console.log(this.moviePickerService.moviesGuessed);
   }
 
 }

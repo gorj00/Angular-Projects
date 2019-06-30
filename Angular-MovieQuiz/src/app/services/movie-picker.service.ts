@@ -8,16 +8,16 @@ export class MoviePickerService {
   constructor() {}
 
   /**
-   * Method returns a random number in a given interval, this number will
-   * represent the position of the movie in a movie list.
+   * Method returns a random number in a given interval.
    *
-   * It is due to the movie DB, since it can generate only 20 movies per one GET
-   * request, this method will help generate three random movies from five sets
+   * This method will help generate three random movies from five sets
    * of movie lists (one movie list holds 20 unique movies)
+   *
+   * This method will also help pick the movies to be guessed
    *
    * @returns   one random number in the given range
    */
-  randomMovieNum(min: number, max: number): number {
+  randomNum(min: number, max: number): number {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -32,10 +32,10 @@ export class MoviePickerService {
    * and 1 movie as correct answer
    *
    * @example   this.moviesPicks = [
-   *              [ 2, 15, 12]
-   *              [24, 30, 36]
-   *              [48, 51, 56]
-   *              [72, 63, 69]
+   *              [ 2, 15, 12],
+   *              [24, 30, 36],
+   *              [48, 51, 56],
+   *              [72, 63, 69],
    *              [85, 99, 92]
    *            ]
    */
@@ -56,7 +56,7 @@ export class MoviePickerService {
       // ... three unique movies (three items per row) ...
       while (this.moviesPicks[i].length < 3) {
         // ... from a unique set of twenty movies.
-        const moviePicked = this.randomMovieNum(min, max);
+        const moviePicked = this.randomNum(min, max);
         // If the random movie was already picked, start again ...
         if (this.moviesPicks[i].includes(moviePicked)) {
             continue;
@@ -67,8 +67,10 @@ export class MoviePickerService {
     } // for end
   }
 
-  // TODO pick the correct movies out of the matrix's rows
-  // pickMoviesGuessed(matrix: () => void): void {
-
-  // }
+  // Pick the movies out of the matrix's rows that the guesser will guess
+  moviesToGuess(matrix: number[][]): void {
+    for (let i = 0; i < 5; i++) {
+      this.moviesGuessed[i] = matrix[i][this.randomNum(0, 2)];
+    }
+  }
 }
