@@ -38,6 +38,12 @@ export class CluesComponent implements OnInit {
     );
   }
 
+
+
+  getHints() {
+
+  }
+
   ngOnInit() {
     // trying out Avengers Endgame ID 299534
     this.getImages();

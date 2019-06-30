@@ -67,7 +67,12 @@ export class MoviePickerService {
     } // for end
   }
 
-  // Pick the movies out of the matrix's rows that the guesser will guess
+  /**
+   * Out of the movies picked per row (3), pick one to be guessed
+   * the by guesser
+   *
+   * @example   this.moviesGuessed = [12, 30, 48, 72, 92]
+   */
   moviesToGuess(matrix: number[][]): void {
     for (let i = 0; i < 5; i++) {
       this.moviesGuessed[i] = matrix[i][this.randomNum(0, 2)];
