@@ -14,7 +14,11 @@ export class QuizComponent implements OnInit {
    * Number of movies that is supposed to be displayed
    */
   numsOfMovies = 5;
-  moviesList: {};
+
+  /**
+   * This list contains 100 recent movies
+   */
+  moviesList: string[] = [];
 
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) { }
@@ -33,15 +37,23 @@ export class QuizComponent implements OnInit {
     return [...Array(num).keys()].map(item => item + 1);
   }
 
+  /**
+   * Stores 100 movies into the instance attribute
+   *
+   * @see  moviesList
+   */
   getAllMovies() {
     this.movieContentService.getMoviesList()
     .subscribe(
-      (response: Response) => {
-        console.log('List inner: ' + response);
+      (response) => {
+        for (let i = 0; i < 5; i++) {
+          this.moviesList.push(...response[i].results);
+        }
+        console.log('List inner: ', this.moviesList);
         },
-        error => console.log(error)
-      );
-  }
+      error => console.log(error)
+    ); // end subscribe
+  } // end getAllMovies()
 
   // TODO
   getMovieTitle() {
@@ -53,14 +65,8 @@ export class QuizComponent implements OnInit {
     this.moviePickerService.pickMoviesMatrix();
     this.moviePickerService
     .moviesToGuess(this.moviePickerService.moviesPicks);
-
-    // TODO Loop to get everything
-
-    // Check the movies chosen // TO DELETE***
-    console.log(this.moviePickerService.moviesPicks);
-    console.log(this.moviePickerService.moviesGuessed);
     this.getAllMovies();
-
+    console.log('INSTANCE: ', this.moviesList);
 
   }
 

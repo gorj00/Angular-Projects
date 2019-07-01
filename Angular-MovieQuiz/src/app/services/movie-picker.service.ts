@@ -69,7 +69,7 @@ export class MoviePickerService {
 
   /**
    * Out of the movies picked per row (3), pick one to be guessed
-   * the by guesser
+   * by the guesser
    *
    * @example   this.moviesGuessed = [12, 30, 48, 72, 92]
    */

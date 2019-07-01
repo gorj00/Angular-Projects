@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin } from 'rxjs';
+import { forkJoin } from 'rxjs';
 
 @Injectable()
 export class MovieContentService {
@@ -12,6 +12,9 @@ export class MovieContentService {
   /**
    * Returns a page with 20 movies to pick three
    * for one question
+   *
+   * @param     page   1-5
+   * @returns          Observable
    */
   getMoviesPage(page: number) {
     return this.http.get(this.baseUrl + 'discover/movie' +
@@ -23,9 +26,11 @@ export class MovieContentService {
   }
 
   /**
-   * Consists of 5 pages
+   * Movie list consists of 5 pages
+   *
+   * @returns     Observables (forkJoin)
    */
-  getMoviesList(): Observable<any> {
+  getMoviesList() {
     const moviePages: any[] = [];
     for (let i = 1; i <= 5; i++) {
       moviePages.push(this.getMoviesPage(i));
@@ -46,9 +51,5 @@ export class MovieContentService {
       '&include_image_language=en,' +
       'null');
   }
-
-
-
-
 
 }
