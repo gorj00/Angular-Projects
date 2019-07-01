@@ -46,7 +46,7 @@ export class CluesComponent implements OnInit {
 
   ngOnInit() {
     // trying out Avengers Endgame ID 299534
-    this.getImages();
+    // this.getImages();
   }
 
 }

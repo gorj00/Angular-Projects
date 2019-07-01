@@ -11,14 +11,10 @@ import { Config } from 'protractor';
 })
 export class QuizComponent implements OnInit {
   /**
-   * Number of movies that is supposed to be displayed
-   */
-  numsOfMovies = 5;
-
-  /**
    * This list contains 100 recent movies
    */
   moviesList: string[] = [];
+  moviesTitles: any[] = [];
 
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) { }
@@ -42,7 +38,8 @@ export class QuizComponent implements OnInit {
    *
    * @see  moviesList
    */
-  getAllMovies() {
+
+  setMoviesList() {
     this.movieContentService.getMoviesList()
     .subscribe(
       (response) => {
@@ -56,18 +53,29 @@ export class QuizComponent implements OnInit {
   } // end getAllMovies()
 
   // TODO
-  getMovieTitle() {
-
+  setMovieTitles() {
+    for (let i = 0; i < 5; i++) {
+      this.moviesTitles.push(i);
+      for (let j = 0; j < 3; j++) {
+        this.moviesTitles[i].push(this.moviePickerService.moviesPicks[2]);
+      }
+    }
   }
+
+
+  // // TODO Create quiz
+  // createQuiz(): void {
+  //   this.getMovieTitles();
+  //   ...
+  // }
 
   ngOnInit() {
     // On every load, make a new quiz
     this.moviePickerService.pickMoviesMatrix();
-    this.moviePickerService
-    .moviesToGuess(this.moviePickerService.moviesPicks);
-    this.getAllMovies();
-    console.log('INSTANCE: ', this.moviesList);
-
+    this.moviePickerService.moviesToGuess(this.moviePickerService.moviesPicks);
+    this.setMoviesList();
+    this.setMovieTitles();
+    console.log(this.moviesTitles);
   }
 
 }

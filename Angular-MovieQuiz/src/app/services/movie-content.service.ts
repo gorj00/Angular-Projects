@@ -5,7 +5,7 @@ import { forkJoin } from 'rxjs';
 @Injectable()
 export class MovieContentService {
   baseUrl = 'https://api.themoviedb.org/3/';
-  apiKey = '?api_key=a5357212f9c747dac679fc5ab1aa7ca9';
+  apiKey = '?api_key=' + 'a5357212f9c747dac679fc5ab1aa7ca9';
 
   constructor(private http: HttpClient) {}
 
@@ -16,7 +16,7 @@ export class MovieContentService {
    * @param     page   1-5
    * @returns          Observable
    */
-  getMoviesPage(page: number) {
+  getMoviesPerPage(page: number) {
     return this.http.get(this.baseUrl + 'discover/movie' +
       this.apiKey + '&language=en-US' +
       '&sort_by=popularity.desc' +
@@ -33,7 +33,7 @@ export class MovieContentService {
   getMoviesList() {
     const moviePages: any[] = [];
     for (let i = 1; i <= 5; i++) {
-      moviePages.push(this.getMoviesPage(i));
+      moviePages.push(this.getMoviesPerPage(i));
     }
     return forkJoin([...moviePages]);
   }
