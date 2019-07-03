@@ -20,7 +20,6 @@ export class QuizComponent implements OnInit {
    */
   moviesList: any[] = [];
   moviesTitles: any[] = [];
-  movT: string;
 
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) { }
@@ -126,9 +125,8 @@ export class QuizComponent implements OnInit {
 
     // Requesting and handling data for the quiz from Movie DB REST API
     this.quizLogic(() => {
+      // Set and store the titles
       this.setMoviesTitles();
-      console.log('TITLES: ', this.moviesTitles);
-      // console.log('ZKOUŠKA xx: ', this.moviesList[2].title);
     });
   }
 
