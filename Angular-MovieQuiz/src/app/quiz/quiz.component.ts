@@ -39,55 +39,9 @@ export class QuizComponent implements OnInit {
     return [...Array(num).keys()].map(item => item + 1);
   }
 
-  // /**
-  //  * Setter for assinging observable's data into a class classProperty
-  //  * outside of observable's scope
-  //  *
-  //  * @param classProperty
-  //  * @param observableResponse
-  //  */
-  // setter(classProperty: any, observableResponse: any) {
-  //   classProperty = observableResponse;
-  // }
-
-//   /**
-//    * Stores 100 movies into the instance attribute
-//    *
-//    * @see  moviesList
-//    */
-//   setMoviesList() {
-//   this.movieContentService.getMoviesList()
-//     .subscribe(
-//       response => {
-//         this.setter(this.moviesList, response);
-//         for (let i = 0; i < 5; i++) {
-//           this.moviesList.push(...response[i].results);
-//         }
-//       },
-//       error => console.log(error)
-//     ); // end subscribe
-//   } // end setMoviesList()
-
-// // PROMISE
-//   getMoviesPages(): Promise<any[]> {
-//     const moviesList = [];
-//     return new Promise(resolve => {
-//       this.movieContentService.getMoviesList()
-//       .subscribe(
-//         response => resolve(response),
-//         error => console.log(error)
-//       ); // end subscribe
-//     }); // end promise
-//   } // end setMoviesList()
-
-//   // setMoviesList(moviesPages) {
-//   //   for (let i = 0; i < 5; i++) {
-//   //     this.moviesList.push(...moviesPages[i].results);
-//   //   }
-//   // }
-
   /**
    * Get position of a movie in movie picks matrix
+   *
    * @param questionOrder   0-4 (5 questions in quiz)
    * @param movieOrder      0-2 (3 movie options per question)
    */
@@ -96,17 +50,17 @@ export class QuizComponent implements OnInit {
     if ((questionOrder < 5 &&
             movieOrder < 3)
             && (
-         questionOrder > 0 &&
-            movieOrder > 0)) {
+         questionOrder >= 0 &&
+            movieOrder >= 0)) {
     return this.moviePickerService.moviesPicks
-    [questionOrder]
-    [movieOrder];
+                  [questionOrder]
+                  [movieOrder];
+    } else {
+      console.log(
+        'Movie position in list outside of range (quiz.component.ts)'
+        );
     }
   }
-
-
-
-
 
   /**
    * Stores 100 movies into the component variable
@@ -152,17 +106,11 @@ export class QuizComponent implements OnInit {
       for (let j = 0; j < 3; j++) {
         this.moviesTitles[i].push(this.moviesList
           [this.getMoviePositionInList(i, j)]
-          // [titlePosition]
+          [titlePosition]
         ); // end push
-        // console.log('Titles picked: ', i, j);
       } // end for (j)
     } // end for (i)
-    console.log('TRY picked: ', this.moviesList
-    [this.getMoviePositionInList(0, 1)]);
-
-
-  } // end method
-
+  }
 
   /**
    * Creates a quiz
@@ -179,8 +127,6 @@ export class QuizComponent implements OnInit {
     // Requesting and handling data for the quiz from Movie DB REST API
     this.quizLogic(() => {
       this.setMoviesTitles();
-      console.log('PICKS: ', this.moviePickerService.moviesPicks);
-
       console.log('TITLES: ', this.moviesTitles);
       // console.log('ZKOUŠKA xx: ', this.moviesList[2].title);
     });
