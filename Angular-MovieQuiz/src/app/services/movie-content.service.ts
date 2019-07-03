@@ -30,7 +30,7 @@ export class MovieContentService {
    *
    * @returns     Observables (forkJoin)
    */
-  getMoviesList() {
+  getMoviesObservables() {
     const moviePages: any[] = [];
     for (let i = 1; i <= 5; i++) {
       moviePages.push(this.getMoviesPerPage(i));

@@ -105,79 +105,89 @@ export class QuizComponent implements OnInit {
   }
 
 
-  // /**
-  //  * Extracts the quiz' movie TITLES
-  //  *
-  //  * @see  getMoviePositionInList()
-  //  */
-  // setMoviesTitles(): void {
-  //   const titlePosition = 'title';
-  //   for (let i = 0; i < 5; i++) {
-  //     this.moviesTitles.push(i);
-  //     for (let j = 0; j < 3; j++) {
-  //       this.moviesTitles.push(this.moviesList
-  //         [this.getMoviePositionInList(i, j)]
-  //         // [titlePosition]
-  //       ); // end push
-  //     } // end for (j)
-  //   } // end for (i)
-  // } // end method
+
 
 
   /**
-   * Stores 100 movies into the instance attribute
+   * Stores 100 movies into the component variable
    *
    * @see  moviesList
    */
-  getMoviesPages() {
-  return this.movieContentService.getMoviesList()
-    .pipe(map(response => {
+  setMoviesList() {
+    return this.movieContentService.getMoviesObservables()
+    .pipe(
+      map(response => {
         for (let i = 0; i < 5; i++) {
           this.moviesList.push(...response[i].results);
-        }
-      }
-    ));
-      // .catch((error) => {
-      //    console.log('error ' + error);
-      //    throw error;
-      //  } // end catch
-      // ); // end map
-  } // end setMoviesList()
+        } // end for
+      }) // end cb & map
+    ); // end pipe
+  }
+
+  /**
+   * All quiz logic handling movie list data must be passed as
+   * a callback function to this method due to data being assigned
+   * to compopenent variables from an observable
+   *
+   * Otherwise all of the logic is executed prior to data being
+   * assigned to the component variables
+   * (which will result in variables being undefined)
+   *
+   * @param cb
+   * @see   setMoviesList()
+   */
+  quizLogic(cb) {
+    this.setMoviesList().subscribe(cb);
+  }
+
+  /**
+   * Extracts the quiz' movie titles
+   *
+   * @see  getMoviePositionInList()
+   */
+  setMoviesTitles() {
+    const titlePosition = 'title';
+    for (let i = 0; i < 5; i++) {
+      this.moviesTitles.push([]);
+      for (let j = 0; j < 3; j++) {
+        this.moviesTitles[i].push(this.moviesList
+          [this.getMoviePositionInList(i, j)]
+          // [titlePosition]
+        ); // end push
+        // console.log('Titles picked: ', i, j);
+      } // end for (j)
+    } // end for (i)
+    console.log('TRY picked: ', this.moviesList
+    [this.getMoviePositionInList(0, 1)]);
+
+
+  } // end method
+
 
   /**
    * Creates a quiz
    */
-  createQuiz(): void {
-
-  }
-
-  getMoviesList() {
-
-  }
-
-  ngOnInit() {
+  createQuiz() {
+    // Picks 15 numbers out of 100
     this.moviePickerService.pickMoviesMatrix();
+
+    // Picks 5 numbers out of the 15 picks
     this.moviePickerService.moviesToGuess(this
       .moviePickerService
       .moviesPicks);
 
-    this.getMoviesPages().subscribe(() => {
-      console.log('ZKOUŠKA xx: ', this.moviesList[2].title);
+    // Requesting and handling data for the quiz from Movie DB REST API
+    this.quizLogic(() => {
+      this.setMoviesTitles();
+      console.log('PICKS: ', this.moviePickerService.moviesPicks);
+
+      console.log('TITLES: ', this.moviesTitles);
+      // console.log('ZKOUŠKA xx: ', this.moviesList[2].title);
     });
-    // this.getMoviesPages()
-    //   .then(movies => {
-    //     const list = [];
-    //     for (let i = 0; i < 5; i++) {
-    //       list.push(...movies[i].results);
-    //     }
-    //     this.moviesList = list.slice(0);
-    //     console.log('ZKOUŠKA: ', this.moviesList[2]);
-    //   });
+  }
 
-    // console.log('PICKS: ', this.moviePickerService.moviesPicks);
-    // console.log('TITLES: ', this.moviesTitles);
-    // console.log('LIST', this.moviesList);
-
-
+  ngOnInit() {
+    // Cerate a quiz on a page load
+    this.createQuiz();
   }
 }
