@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviePickerService } from 'src/app/services/movie-picker.service';
 import { MovieContentService } from 'src/app/services/movie-content.service';
-import { Config } from 'protractor';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-quiz',
@@ -11,10 +11,16 @@ import { Config } from 'protractor';
 })
 export class QuizComponent implements OnInit {
   /**
+   * Total number of questions where user guesses the correct
+   * movie with the help of provided clues
+   */
+  numsOfMovies = 5;
+  /**
    * This list contains 100 recent movies
    */
-  moviesList: string[] = [];
+  moviesList: any[] = [];
   moviesTitles: any[] = [];
+  movT: string;
 
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) { }
@@ -33,49 +39,145 @@ export class QuizComponent implements OnInit {
     return [...Array(num).keys()].map(item => item + 1);
   }
 
+  // /**
+  //  * Setter for assinging observable's data into a class classProperty
+  //  * outside of observable's scope
+  //  *
+  //  * @param classProperty
+  //  * @param observableResponse
+  //  */
+  // setter(classProperty: any, observableResponse: any) {
+  //   classProperty = observableResponse;
+  // }
+
+//   /**
+//    * Stores 100 movies into the instance attribute
+//    *
+//    * @see  moviesList
+//    */
+//   setMoviesList() {
+//   this.movieContentService.getMoviesList()
+//     .subscribe(
+//       response => {
+//         this.setter(this.moviesList, response);
+//         for (let i = 0; i < 5; i++) {
+//           this.moviesList.push(...response[i].results);
+//         }
+//       },
+//       error => console.log(error)
+//     ); // end subscribe
+//   } // end setMoviesList()
+
+// // PROMISE
+//   getMoviesPages(): Promise<any[]> {
+//     const moviesList = [];
+//     return new Promise(resolve => {
+//       this.movieContentService.getMoviesList()
+//       .subscribe(
+//         response => resolve(response),
+//         error => console.log(error)
+//       ); // end subscribe
+//     }); // end promise
+//   } // end setMoviesList()
+
+//   // setMoviesList(moviesPages) {
+//   //   for (let i = 0; i < 5; i++) {
+//   //     this.moviesList.push(...moviesPages[i].results);
+//   //   }
+//   // }
+
+  /**
+   * Get position of a movie in movie picks matrix
+   * @param questionOrder   0-4 (5 questions in quiz)
+   * @param movieOrder      0-2 (3 movie options per question)
+   */
+  getMoviePositionInList(questionOrder: number,
+                         movieOrder: number): number {
+    if ((questionOrder < 5 &&
+            movieOrder < 3)
+            && (
+         questionOrder > 0 &&
+            movieOrder > 0)) {
+    return this.moviePickerService.moviesPicks
+    [questionOrder]
+    [movieOrder];
+    }
+  }
+
+
+  // /**
+  //  * Extracts the quiz' movie TITLES
+  //  *
+  //  * @see  getMoviePositionInList()
+  //  */
+  // setMoviesTitles(): void {
+  //   const titlePosition = 'title';
+  //   for (let i = 0; i < 5; i++) {
+  //     this.moviesTitles.push(i);
+  //     for (let j = 0; j < 3; j++) {
+  //       this.moviesTitles.push(this.moviesList
+  //         [this.getMoviePositionInList(i, j)]
+  //         // [titlePosition]
+  //       ); // end push
+  //     } // end for (j)
+  //   } // end for (i)
+  // } // end method
+
+
   /**
    * Stores 100 movies into the instance attribute
    *
    * @see  moviesList
    */
-
-  setMoviesList() {
-    this.movieContentService.getMoviesList()
-    .subscribe(
-      (response) => {
+  getMoviesPages() {
+  return this.movieContentService.getMoviesList()
+    .pipe(map(response => {
         for (let i = 0; i < 5; i++) {
           this.moviesList.push(...response[i].results);
         }
-        console.log('List inner: ', this.moviesList);
-        },
-      error => console.log(error)
-    ); // end subscribe
-  } // end getAllMovies()
-
-  // TODO
-  setMovieTitles() {
-    for (let i = 0; i < 5; i++) {
-      this.moviesTitles.push(i);
-      for (let j = 0; j < 3; j++) {
-        this.moviesTitles[i].push(this.moviePickerService.moviesPicks[2]);
       }
-    }
+    ));
+      // .catch((error) => {
+      //    console.log('error ' + error);
+      //    throw error;
+      //  } // end catch
+      // ); // end map
+  } // end setMoviesList()
+
+  /**
+   * Creates a quiz
+   */
+  createQuiz(): void {
+
   }
 
+  getMoviesList() {
 
-  // // TODO Create quiz
-  // createQuiz(): void {
-  //   this.getMovieTitles();
-  //   ...
-  // }
+  }
 
   ngOnInit() {
-    // On every load, make a new quiz
     this.moviePickerService.pickMoviesMatrix();
-    this.moviePickerService.moviesToGuess(this.moviePickerService.moviesPicks);
-    this.setMoviesList();
-    this.setMovieTitles();
-    console.log(this.moviesTitles);
-  }
+    this.moviePickerService.moviesToGuess(this
+      .moviePickerService
+      .moviesPicks);
 
+    this.getMoviesPages().subscribe(() => {
+      console.log('ZKOUŠKA xx: ', this.moviesList[2].title);
+    });
+    // this.getMoviesPages()
+    //   .then(movies => {
+    //     const list = [];
+    //     for (let i = 0; i < 5; i++) {
+    //       list.push(...movies[i].results);
+    //     }
+    //     this.moviesList = list.slice(0);
+    //     console.log('ZKOUŠKA: ', this.moviesList[2]);
+    //   });
+
+    // console.log('PICKS: ', this.moviePickerService.moviesPicks);
+    // console.log('TITLES: ', this.moviesTitles);
+    // console.log('LIST', this.moviesList);
+
+
+  }
 }
