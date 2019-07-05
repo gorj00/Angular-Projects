@@ -11,15 +11,15 @@ import { map } from 'rxjs/operators';
 })
 export class QuizComponent implements OnInit {
   /**
-   * Total number of questions where user guesses the correct
-   * movie with the help of provided clues
+   * Total number of movie questions where user guesses the
+   * correct movie with the help of provided clues
    */
   totalNumberOfMovies = 5;
 
   /**
    * Array of movie orders in the quiz
    */
-  moviesOrder = this.numToArray(this.totalNumberOfMovies);
+  moviesOrder: number[] = this.numToArray(this.totalNumberOfMovies);
 
   /**
    * This list contains 100 recent and popular movies
