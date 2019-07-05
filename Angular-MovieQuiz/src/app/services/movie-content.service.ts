@@ -13,8 +13,8 @@ export class MovieContentService {
    * Returns a page with 20 movies to pick three
    * for one question
    *
-   * @param     page   1-5
-   * @returns          Observable
+   * @param    page       (1-5)
+   * @returns  Observable
    */
   getMoviesPerPage(page: number) {
     return this.http.get(this.baseUrl + 'discover/movie' +
@@ -44,7 +44,7 @@ export class MovieContentService {
    * @param   movieId   ID of the movie used to identify the movie object
    * @returns           JSON object movie with its properties
    */
-  getMovObjects(movieId: number) {
+  getMoviesObjectsObservables(movieId: number) {
     return this.http.get(this.baseUrl + 'movie/' + movieId + this.apiKey +
       '&language=en-US' +
       '&append_to_response=images' +

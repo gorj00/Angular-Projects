@@ -1,7 +1,10 @@
 <section
-  *ngFor="let i of numToArray(numsOfMovies)">
+  *ngFor="let movie of moviesToBeGuessedIds">
   <form>
-    <app-clues [singleMovNum]="i"></app-clues>
+    <app-clues
+      [movieOrder]="movie.order"
+      [movieID]="movie.id">
+    </app-clues>
     <app-options></app-options>
     <app-results></app-results>
   </form>

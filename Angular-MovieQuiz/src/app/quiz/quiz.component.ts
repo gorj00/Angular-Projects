@@ -14,12 +14,33 @@ export class QuizComponent implements OnInit {
    * Total number of questions where user guesses the correct
    * movie with the help of provided clues
    */
-  numsOfMovies = 5;
+  totalNumberOfMovies = 5;
+
   /**
-   * This list contains 100 recent movies
+   * Array of movie orders in the quiz
+   */
+  moviesOrder = this.numToArray(this.totalNumberOfMovies);
+
+  /**
+   * This list contains 100 recent and popular movies
    */
   moviesList: any[] = [];
+
+  /**
+   * Contains 15 titles (3 movie options per a question)
+   */
   moviesTitles: any[] = [];
+
+  /**
+   * Contains 5 objects of the movies to be guessed
+   */
+  moviesToBeGuessedIds: any[] = [];
+
+  /**
+   * Contains 5 objects of the movies to be guessed
+   * (id, title, year, director, actors, images)
+   */
+  moviesToBeGuessedClues: any[] = [];
 
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) { }
@@ -67,7 +88,8 @@ export class QuizComponent implements OnInit {
    * @see  moviesList
    */
   setMoviesList() {
-    return this.movieContentService.getMoviesObservables()
+    return this.movieContentService
+    .getMoviesObservables()
     .pipe(
       map(response => {
         for (let i = 0; i < 5; i++) {
@@ -103,11 +125,31 @@ export class QuizComponent implements OnInit {
     for (let i = 0; i < 5; i++) {
       this.moviesTitles.push([]);
       for (let j = 0; j < 3; j++) {
-        this.moviesTitles[i].push(this.moviesList
+        this.moviesTitles[i]
+        .push(
+          this.moviesList
           [this.getMoviePositionInList(i, j)]
           [titlePosition]
         ); // end push
       } // end for (j)
+    } // end for (i)
+  }
+
+  /**
+   * Extracts the quiz' movie IDs
+   *
+   * @see  getMoviePositionInList()
+   */
+  setMoviesObjects() {
+    const id = 'id';
+    for (let i = 0; i < 5; i++) {
+      this.moviesToBeGuessedIds
+      .push({
+        order: this.moviesOrder[i],
+        id: this.moviesList
+            [this.moviePickerService.moviesGuessed[i]]
+            [id]
+      }); // end push
     } // end for (i)
   }
 
@@ -125,8 +167,16 @@ export class QuizComponent implements OnInit {
 
     // Requesting and handling data for the quiz from Movie DB REST API
     this.quizLogic(() => {
+
       // Set and store the titles
       this.setMoviesTitles();
+
+      // Set and store the guessed movies IDs
+      this.setMoviesObjects();
+      console.log(this.moviesList);
+      console.log(this.moviePickerService.moviesPicks);
+      console.log(this.moviePickerService.moviesGuessed);
+      console.log(this.moviesToBeGuessedIds);
     });
   }
 
