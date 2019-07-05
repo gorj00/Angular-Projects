@@ -34,13 +34,13 @@ export class QuizComponent implements OnInit {
   /**
    * Contains 5 objects of the movies to be guessed
    */
-  moviesToBeGuessedIds: any[] = [];
+  moviesToBeGuessed: any[] = [];
 
-  /**
-   * Contains 5 objects of the movies to be guessed
-   * (id, title, year, director, actors, images)
-   */
-  moviesToBeGuessedClues: any[] = [];
+  // /**
+  //  * Contains 5 objects of the movies to be guessed
+  //  * (id, title, year, director, actors, images)
+  //  */
+  // moviesToBeGuessedClues: any[] = [];
 
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) { }
@@ -143,7 +143,7 @@ export class QuizComponent implements OnInit {
   setMoviesObjects() {
     const id = 'id';
     for (let i = 0; i < 5; i++) {
-      this.moviesToBeGuessedIds
+      this.moviesToBeGuessed
       .push({
         order: this.moviesOrder[i],
         id: this.moviesList
@@ -176,7 +176,7 @@ export class QuizComponent implements OnInit {
       console.log(this.moviesList);
       console.log(this.moviePickerService.moviesPicks);
       console.log(this.moviePickerService.moviesGuessed);
-      console.log(this.moviesToBeGuessedIds);
+      console.log(this.moviesToBeGuessed);
     });
   }
 
