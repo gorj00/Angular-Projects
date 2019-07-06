@@ -52,4 +52,9 @@ export class MovieContentService {
       'null');
   }
 
+  getMoviesCluesObservables(movieId: number) {
+    return this.http.get(this.baseUrl + 'movie/' + movieId + '/credits' +
+    this.apiKey);
+  }
+
 }

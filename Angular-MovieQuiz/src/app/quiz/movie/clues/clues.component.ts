@@ -11,36 +11,13 @@ import { map } from 'rxjs/operators';
 export class CluesComponent implements OnInit {
   @Input() movieOrder: number;
   @Input() movieID: number;
-  cluesImgs: string[] = [];
+  @Input() moviesSubObjects;
+           cluesImgs: string[] = [];
+           moviesClues: any[] = [];
+           moviesYears: number[] = [];
 
   constructor(private movieContentService: MovieContentService) { }
 
-  /**
-   * Gets the movie's 4 image URLs
-   *
-   * Movie object image URLs location:
-   * Fetched Data → images → backdrops → file_path
-   */
-  getImages() {
-    this.movieContentService.getMoviesObjectsObservables(this.movieID)
-      .subscribe(
-        (response: Config) => {
-          // Storing the first four movie image objects into an array
-          const imgObjects = response
-          .images
-          .backdrops
-          .slice(0, 4);
-
-          // Extracting the images URLs and storing them in an instance array
-          imgObjects.map(image => this.cluesImgs
-            .push('http://image.tmdb.org/t/p/w185' + image.file_path)
-            );
-
-          console.log('YAAY: ', this.movieID);
-        },
-        error => console.log(error)
-    );
-  }
   // setImages() {
   //   return this.movieContentService
   //   .getMoviesObjectsObservables(this.movieID)
@@ -60,14 +37,88 @@ export class CluesComponent implements OnInit {
   //   ); // end pipe
   // }
 
+  /**
+   * Gets the movie's 4 image URLs
+   *
+   * Movie object image URLs location:
+   * Fetched Data → images → backdrops → file_path
+   */
+  setImages() {
+    return this.movieContentService.getMoviesObjectsObservables(this.movieID)
+      .pipe(
+        map(
+        (response: Config) => {
+          // Storing the first four movie image objects into an array
+          const imgObjects = response
+          .images
+          .backdrops
+          .slice(0, 4);
 
-  // imagesLogic(cb) {
-  //   this.setImages().subscribe(cb);
-  // }
+          // Extracting the images URLs and storing them in an instance array
+          imgObjects.map(image => this.cluesImgs
+            .push('http://image.tmdb.org/t/p/w185' + image.file_path)
+            );
+
+          // Store movie movie movie years
+          this.moviesYears.push(response
+            .release_date
+            .substring(0, 4)
+            );
+          // console.log('Year T: ', this.moviesYears);
+        }
+      ));
+  }
+
+  setMoviesClues() {
+    return this.movieContentService.getMoviesCluesObservables(this.movieID)
+      .pipe(
+        map(
+        (response: Config) => {
+          const year = this.moviesYears;
+          const director = [];
+          const cast = [];
+          const castNames = cast.map(castObject => castObject.name);
+          const images = this.cluesImgs;
+          for (let i = 0; i < 5; i++) {
+            response.crew
+            .forEach(entry => {
+              if (entry.job === 'Director') {
+                director.push(entry.name);
+              }
+            });
+            cast.push(response.cast.slice(0, 5));
+
+            this.moviesClues.push({
+              year: year[i],
+              director: director[i],
+              cast: castNames[i],
+              images: images[i]
+            });
+          }
+          // console.log('Movie Objects: ', this.moviesClues);
+        }
+      ));
+  }
+
+  imagesAndYearLogic(cb) {
+    this.setImages().subscribe(cb);
+  }
+
+  moviesCluesLogic(cb) {
+    this.setImages().subscribe(cb);
+  }
 
   ngOnInit() {
     // trying out Avengers Endgame ID 299534
-    this.getImages();
+    // this.imagesAndYearLogic(() => {
+    //   this.setImages();
+    // });
+    this.moviesCluesLogic(() => {
+      this.setMoviesClues();
+    });
+
+
+
     // this.imagesLogic(() => {
     //   this.setImages();
     //   console.log('YAAY: ', this.movieID);
@@ -75,5 +126,4 @@ export class CluesComponent implements OnInit {
 
     // console.log(this.singleMovNum);
   }
-
 }

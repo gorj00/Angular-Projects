@@ -1,9 +1,9 @@
 <div class="clues">
     <h2>{{ movieOrder }}/5 - Information about the movie</h2>
-    <span class="year3">Year:</span>
-    <span class="director3">Director:</span>
-    <span class="actors3">Actors:</span>
-    <div class="images3">
+    <span class="year">Year: {{ moviesSubObjects[movieOrder - 1].id }}</span>
+    <span class="director">Director:</span>
+    <span class="actors">Actors:</span>
+    <div class="images">
         <img *ngFor="let imgUrl of cluesImgs" [src]="imgUrl">
     </div>
 </div>
