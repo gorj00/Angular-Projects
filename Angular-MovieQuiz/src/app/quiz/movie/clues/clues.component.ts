@@ -18,25 +18,6 @@ export class CluesComponent implements OnInit {
 
   constructor(private movieContentService: MovieContentService) { }
 
-  // setImages() {
-  //   return this.movieContentService
-  //   .getMoviesObjectsObservables(this.movieID)
-  //     .pipe(
-  //       map((response: Config) => {
-  //         // Storing the first four movie image objects into an array
-  //         const imgObjects = response
-  //         .images
-  //         .backdrops
-  //         .slice(0, 4);
-
-  //         // Extracting the images URLs and storing them in an component array
-  //         imgObjects.map(image => this.cluesImgs
-  //           .push('http://image.tmdb.org/t/p/w185' + image.file_path)
-  //           );
-  //       }) // end cb & map
-  //   ); // end pipe
-  // }
-
   /**
    * Gets the movie's 4 image URLs
    *
@@ -71,6 +52,19 @@ export class CluesComponent implements OnInit {
       ));
   }
 
+  // Setting Director property
+  setDirector(res: Config, obj: any) {
+    res.crew.forEach(entry => {
+      if (entry.job === 'Director') {
+        obj.push(entry.name);
+      }
+    });
+  }
+
+  setCast(res: Config, arr: any) {
+
+  }
+
   setMoviesClues() {
     return this.movieContentService.getMoviesCluesObservables(this.movieID)
       .pipe(
@@ -81,15 +75,13 @@ export class CluesComponent implements OnInit {
           const cast = [];
           const images = this.cluesImgs;
 
-          response.crew.forEach(entry => {
-            if (entry.job === 'Director') {
-              director.push(entry.name);
-            }
-          });
+          this.setDirector(response, director);
 
+          // Setting cast property
           cast.push(response.cast.slice(0, 4));
-          const castNames = cast[0].map(castObject => castObject.name);
+          const castNames = cast[0].map(castObject => castObject.name).join(', ');
 
+          // Setting the entire movie clues object
           this.moviesClues.push({
             year,
             director,
@@ -102,21 +94,25 @@ export class CluesComponent implements OnInit {
 
   imagesAndYearLogic(cb) {
     this.setImages().subscribe(cb);
-    // console.log('Year T: ', this.moviesYears);
   }
 
   moviesCluesLogic(cb) {
     this.setMoviesClues().subscribe(cb);
   }
 
-  ngOnInit() {
+  gatherClues() {
+    // Storing images and years
     this.imagesAndYearLogic(() => {
       this.setImages();
     });
+
+    // Setting entire movies clues object
     this.moviesCluesLogic(() => {
       this.setMoviesClues();
-      console.log('Movie Objects: ', this.moviesClues);
     });
+  }
 
+  ngOnInit() {
+    this.gatherClues();
   }
 }
