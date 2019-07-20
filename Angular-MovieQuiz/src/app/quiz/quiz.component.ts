@@ -149,8 +149,8 @@ export class QuizComponent implements OnInit {
         id: this.moviesList
             [this.moviePickerService.moviesGuessed[i]]
             [id]
-      }); // end push
-    } // end for (i)
+      }); // end object & push
+    } // end for
   }
 
   /**
@@ -176,7 +176,7 @@ export class QuizComponent implements OnInit {
       // console.log(this.moviesList);
       // console.log(this.moviePickerService.moviesPicks);
       // console.log(this.moviePickerService.moviesGuessed);
-      console.log(this.moviesToBeGuessed);
+      // console.log(this.moviesToBeGuessed);
     });
   }
 

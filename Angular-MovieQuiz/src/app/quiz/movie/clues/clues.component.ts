@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 export class CluesComponent implements OnInit {
   @Input() movieOrder: number;
   @Input() movieID: number;
-  @Input() moviesSubObjects;
+  // @Input() moviesSubObjects;
            cluesImgs: string[] = [];
            moviesClues: any[] = [];
            moviesYears: number[] = [];
@@ -64,7 +64,9 @@ export class CluesComponent implements OnInit {
             .release_date
             .substring(0, 4)
             );
-          // console.log('Year T: ', this.moviesYears);
+          // console.log('Year O: ', this.moviesYears);
+          // console.log('Images O: ', this.cluesImgs);
+
         }
       ));
   }
@@ -77,53 +79,44 @@ export class CluesComponent implements OnInit {
           const year = this.moviesYears;
           const director = [];
           const cast = [];
-          const castNames = cast.map(castObject => castObject.name);
           const images = this.cluesImgs;
-          for (let i = 0; i < 5; i++) {
-            response.crew
-            .forEach(entry => {
-              if (entry.job === 'Director') {
-                director.push(entry.name);
-              }
-            });
-            cast.push(response.cast.slice(0, 5));
 
-            this.moviesClues.push({
-              year: year[i],
-              director: director[i],
-              cast: castNames[i],
-              images: images[i]
-            });
-          }
-          // console.log('Movie Objects: ', this.moviesClues);
-        }
-      ));
+          response.crew.forEach(entry => {
+            if (entry.job === 'Director') {
+              director.push(entry.name);
+            }
+          });
+
+          cast.push(response.cast.slice(0, 4));
+          const castNames = cast[0].map(castObject => castObject.name);
+
+          this.moviesClues.push({
+            year,
+            director,
+            cast: castNames,
+            images
+          }); // end object in push
+        }     // end cb response
+      ));    // end map & pipe
   }
 
   imagesAndYearLogic(cb) {
     this.setImages().subscribe(cb);
+    // console.log('Year T: ', this.moviesYears);
   }
 
   moviesCluesLogic(cb) {
-    this.setImages().subscribe(cb);
+    this.setMoviesClues().subscribe(cb);
   }
 
   ngOnInit() {
-    // trying out Avengers Endgame ID 299534
-    // this.imagesAndYearLogic(() => {
-    //   this.setImages();
-    // });
+    this.imagesAndYearLogic(() => {
+      this.setImages();
+    });
     this.moviesCluesLogic(() => {
       this.setMoviesClues();
+      console.log('Movie Objects: ', this.moviesClues);
     });
 
-
-
-    // this.imagesLogic(() => {
-    //   this.setImages();
-    //   console.log('YAAY: ', this.movieID);
-    // });
-
-    // console.log(this.singleMovNum);
   }
 }
