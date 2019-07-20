@@ -107,6 +107,7 @@ export class CluesComponent implements OnInit {
 
   /**
    * Setting images and years to component property
+   *
    * @param cb Callback function
    */
   imagesAndYearLogic(cb) {
@@ -115,6 +116,7 @@ export class CluesComponent implements OnInit {
 
   /**
    * Setting movie clues to component property
+   * 
    * @param cb  Setting m
    */
   moviesCluesLogic(cb) {
