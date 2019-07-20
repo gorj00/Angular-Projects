@@ -24,7 +24,8 @@ export class CluesComponent implements OnInit {
    * Fetched Data → images → backdrops → file_path
    */
   setImages() {
-    return this.movieContentService.getMoviesObjectsObservables(this.movieID)
+    return this.movieContentService
+    .getMoviesObjectsObservables(this.movieID)
       .pipe(
         map(
           (response: Config) => {
@@ -77,7 +78,8 @@ export class CluesComponent implements OnInit {
    * Setting entire movie clue object
    */
   setMoviesClues() {
-    return this.movieContentService.getMoviesCluesObservables(this.movieID)
+    return this.movieContentService
+    .getMoviesCluesObservables(this.movieID)
       .pipe(
         map(
           (response: Config) => {
@@ -116,7 +118,7 @@ export class CluesComponent implements OnInit {
 
   /**
    * Setting movie clues to component property
-   * 
+   *
    * @param cb  Setting m
    */
   moviesCluesLogic(cb) {
