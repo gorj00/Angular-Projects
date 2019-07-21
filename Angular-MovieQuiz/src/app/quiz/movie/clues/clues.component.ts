@@ -119,7 +119,7 @@ export class CluesComponent implements OnInit {
   /**
    * Setting movie clues to component property
    *
-   * @param cb  Setting m
+   * @param cb Callback function
    */
   moviesCluesLogic(cb) {
     this.setMoviesClues().subscribe(cb);
