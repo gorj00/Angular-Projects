@@ -1,0 +1,1259 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-movie-quiz documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-movie-quiz documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>QuizComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/quiz/quiz.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../injectables/MoviePickerService.html" target="_self" >MoviePickerService</a></code>
+                                <code><a href="../injectables/MovieContentService.html" target="_self" >MovieContentService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-quiz</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./quiz.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./quiz.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#moviePicks">moviePicks</a>
+                            </li>
+                            <li>
+                                <a href="#moviesList">moviesList</a>
+                            </li>
+                            <li>
+                                <a href="#moviesOrder">moviesOrder</a>
+                            </li>
+                            <li>
+                                <a href="#moviesTitles">moviesTitles</a>
+                            </li>
+                            <li>
+                                <a href="#moviesToBeGuessed">moviesToBeGuessed</a>
+                            </li>
+                            <li>
+                                <a href="#totalNumberOfMovies">totalNumberOfMovies</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#createQuiz">createQuiz</a>
+                            </li>
+                            <li>
+                                <a href="#getMoviePositionInList">getMoviePositionInList</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#numToArray">numToArray</a>
+                            </li>
+                            <li>
+                                <a href="#quizLogic">quizLogic</a>
+                            </li>
+                            <li>
+                                <a href="#setMoviesList">setMoviesList</a>
+                            </li>
+                            <li>
+                                <a href="#setMoviesObjects">setMoviesObjects</a>
+                            </li>
+                            <li>
+                                <a href="#setMoviesTitles">setMoviesTitles</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(moviePickerService: <a href="../injectables/MoviePickerService.html">MoviePickerService</a>, movieContentService: <a href="../injectables/MovieContentService.html">MovieContentService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/quiz/quiz.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>moviePickerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MoviePickerService.html" target="_self" >MoviePickerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>movieContentService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MovieContentService.html" target="_self" >MovieContentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createQuiz"></a>
+                    <span class="name">
+                        <b>
+                            createQuiz
+                        </b>
+                        <a href="#createQuiz"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createQuiz()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">src/app/quiz/quiz.component.ts:156</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Creates a quiz</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMoviePositionInList"></a>
+                    <span class="name">
+                        <b>
+                            getMoviePositionInList
+                        </b>
+                        <a href="#getMoviePositionInList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMoviePositionInList(questionOrder: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, movieOrder: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/quiz/quiz.component.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Get position of a movie in movie picks matrix</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>questionOrder</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>0-4 (5 questions in quiz)</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>movieOrder</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>0-2 (3 movie options per question)</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">src/app/quiz/quiz.component.ts:179</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numToArray"></a>
+                    <span class="name">
+                        <b>
+                            numToArray
+                        </b>
+                        <a href="#numToArray"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>numToArray(num: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/quiz/quiz.component.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Method returns an array of numbers starting from 1 to param(num)
+for ngFor that renders the wanted number of movies for the quiz</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>num</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>number of movies that will be displayed</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">[1, 2, 3] for param(num) = 3</code></pre>
+                        </div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>number[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>numbers array</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="quizLogic"></a>
+                    <span class="name">
+                        <b>
+                            quizLogic
+                        </b>
+                        <a href="#quizLogic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>quizLogic(cb)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">src/app/quiz/quiz.component.ts:111</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>All quiz logic handling movie list data must be passed as
+a callback function to this method due to data being assigned
+to compopenent variables from an observable</p>
+<p>Otherwise all of the logic is executed prior to data being
+assigned to the component variables
+(which will result in variables being undefined)</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>cb</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMoviesList"></a>
+                    <span class="name">
+                        <b>
+                            setMoviesList
+                        </b>
+                        <a href="#setMoviesList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setMoviesList()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/quiz/quiz.component.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Stores 100 movies into the component variable</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMoviesObjects"></a>
+                    <span class="name">
+                        <b>
+                            setMoviesObjects
+                        </b>
+                        <a href="#setMoviesObjects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setMoviesObjects()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">src/app/quiz/quiz.component.ts:140</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Extracts the quiz&#39; movie IDs</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMoviesTitles"></a>
+                    <span class="name">
+                        <b>
+                            setMoviesTitles
+                        </b>
+                        <a href="#setMoviesTitles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setMoviesTitles()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/app/quiz/quiz.component.ts:120</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Extracts the quiz&#39; movie titles</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="moviePicks"></a>
+                        <span class="name">
+                            <b>
+                            moviePicks</b>
+                            <a href="#moviePicks"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.moviePickerService
+                   .moviesPicks</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/quiz/quiz.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="moviesList"></a>
+                        <span class="name">
+                            <b>
+                            moviesList</b>
+                            <a href="#moviesList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/quiz/quiz.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>This list contains 100 recent and popular movies</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="moviesOrder"></a>
+                        <span class="name">
+                            <b>
+                            moviesOrder</b>
+                            <a href="#moviesOrder"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>number[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.numToArray(this.totalNumberOfMovies)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/quiz/quiz.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Array of movie orders in the quiz</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="moviesTitles"></a>
+                        <span class="name">
+                            <b>
+                            moviesTitles</b>
+                            <a href="#moviesTitles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/quiz/quiz.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Contains 15 titles (3 movie options per a question)</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="moviesToBeGuessed"></a>
+                        <span class="name">
+                            <b>
+                            moviesToBeGuessed</b>
+                            <a href="#moviesToBeGuessed"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/quiz/quiz.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Contains 5 objects of the movies to be guessed</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="totalNumberOfMovies"></a>
+                        <span class="name">
+                            <b>
+                            totalNumberOfMovies</b>
+                            <a href="#totalNumberOfMovies"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>5</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/quiz/quiz.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Total number of movie questions where user guesses the
+correct movie with the help of provided clues</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { MoviePickerService } from &#x27;src/app/services/movie-picker.service&#x27;;
+import { MovieContentService } from &#x27;src/app/services/movie-content.service&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
+
+@Component({
+  selector: &#x27;app-quiz&#x27;,
+  templateUrl: &#x27;./quiz.component.html&#x27;,
+  styleUrls: [&#x27;./quiz.component.css&#x27;],
+  providers: [MoviePickerService, MovieContentService]
+})
+export class QuizComponent implements OnInit {
+  /**
+   * Total number of movie questions where user guesses the
+   * correct movie with the help of provided clues
+   */
+  totalNumberOfMovies &#x3D; 5;
+
+  /**
+   * Array of movie orders in the quiz
+   */
+  moviesOrder: number[] &#x3D; this.numToArray(this.totalNumberOfMovies);
+
+  /**
+   * This list contains 100 recent and popular movies
+   */
+  moviesList: any[] &#x3D; [];
+
+  /**
+   * Contains 15 titles (3 movie options per a question)
+   */
+  moviesTitles: any[] &#x3D; [];
+
+  /**
+   * Contains 5 objects of the movies to be guessed
+   */
+  moviesToBeGuessed: any[] &#x3D; [];
+
+  moviePicks &#x3D; this.moviePickerService
+                   .moviesPicks;
+
+  constructor(private moviePickerService: MoviePickerService,
+              private movieContentService: MovieContentService) { }
+
+  /**
+   * Method returns an array of numbers starting from 1 to param(num)
+   * for ngFor that renders the wanted number of movies for the quiz
+   *
+   * @param   num number of movies that will be displayed
+   * @returns     numbers array
+   * @example     [1, 2, 3] for param(num) &#x3D; 3
+   */
+  numToArray(num: number): number[] {
+    /* Creates array filled with the number, then takes their key
+       and creates an array out of them, then increments them by 1 */
+    return [...Array(num).keys()].map(item &#x3D;&gt; item + 1);
+  }
+
+  /**
+   * Get position of a movie in movie picks matrix
+   *
+   * @param questionOrder   0-4 (5 questions in quiz)
+   * @param movieOrder      0-2 (3 movie options per question)
+   */
+  getMoviePositionInList(questionOrder: number,
+                         movieOrder: number): number {
+    if ((questionOrder &lt; 5 &amp;&amp;
+            movieOrder &lt; 3)
+            &amp;&amp; (
+         questionOrder &gt;&#x3D; 0 &amp;&amp;
+            movieOrder &gt;&#x3D; 0)) {
+    return this.moviePickerService.moviesPicks
+                  [questionOrder]
+                  [movieOrder];
+    } else {
+      console.log(
+        &#x27;Movie position in list outside of range (quiz.component.ts)&#x27;
+        );
+    }
+  }
+
+  /**
+   * Stores 100 movies into the component variable
+   *
+   * @see  moviesList
+   */
+  setMoviesList() {
+    return this.movieContentService
+    .getMoviesObservables()
+    .pipe(
+      map(response &#x3D;&gt; {
+        for (let i &#x3D; 0; i &lt; 5; i++) {
+          this.moviesList.push(...response[i].results);
+        } // end for
+      }) // end cb &amp; map
+    ); // end pipe
+  }
+
+  /**
+   * All quiz logic handling movie list data must be passed as
+   * a callback function to this method due to data being assigned
+   * to compopenent variables from an observable
+   *
+   * Otherwise all of the logic is executed prior to data being
+   * assigned to the component variables
+   * (which will result in variables being undefined)
+   *
+   * @param cb
+   * @see   setMoviesList()
+   */
+  quizLogic(cb) {
+    this.setMoviesList().subscribe(cb);
+  }
+
+  /**
+   * Extracts the quiz&#x27; movie titles
+   *
+   * @see  getMoviePositionInList()
+   */
+  setMoviesTitles() {
+    const titlePosition &#x3D; &#x27;title&#x27;;
+    for (let i &#x3D; 0; i &lt; 5; i++) {
+      this.moviesTitles.push([]);
+      for (let j &#x3D; 0; j &lt; 3; j++) {
+        this.moviesTitles[i]
+        .push(
+          this.moviesList
+          [this.getMoviePositionInList(i, j)]
+          [titlePosition]
+        ); // end push
+      } // end for (j)
+    } // end for (i)
+  }
+
+  /**
+   * Extracts the quiz&#x27; movie IDs
+   *
+   * @see  getMoviePositionInList()
+   */
+  setMoviesObjects() {
+    const id &#x3D; &#x27;id&#x27;;
+    for (let i &#x3D; 0; i &lt; 5; i++) {
+      this.moviesToBeGuessed
+      .push({
+        order: this.moviesOrder[i],
+        id: this.moviesList
+            [this.moviePickerService.moviesGuessed[i]]
+            [id]
+      }); // end object &amp; push
+    } // end for
+  }
+
+  /**
+   * Creates a quiz
+   */
+  createQuiz() {
+    // Picks 15 numbers out of 100
+    this.moviePickerService.pickMoviesMatrix();
+
+    // Picks 5 numbers out of the 15 picks
+    this.moviePickerService.moviesToGuess(this
+      .moviePicks);
+
+    // Requesting and handling data for the quiz from Movie DB REST API
+    this.quizLogic(() &#x3D;&gt; {
+
+      // Set and store the titles
+      this.setMoviesTitles();
+
+      // Set and store the guessed movies IDs
+      this.setMoviesObjects();
+      // console.log(this.moviesList);
+      // console.log(this.moviePickerService.moviesPicks);
+      // console.log(this.moviePickerService.moviesGuessed);
+      // console.log(this.moviesToBeGuessed);
+    });
+  }
+
+  ngOnInit() {
+    // Cerate a quiz on a page load
+    this.createQuiz();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section
+  *ngFor&#x3D;&quot;let movie of moviesToBeGuessed&quot;&gt;
+  &lt;form&gt;
+    &lt;app-clues
+      [movieOrder]&#x3D;&quot;movie.order&quot;
+      [movieID]&#x3D;&quot;movie.id&quot;&gt;
+    &lt;/app-clues&gt;
+    &lt;app-options&gt;&lt;/app-options&gt;
+    &lt;app-results&gt;&lt;/app-results&gt;
+  &lt;/form&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./quiz.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section  *ngFor="let movie of moviesToBeGuessed">  <form>    <app-clues      [movieOrder]="movie.order"      [movieID]="movie.id">    </app-clues>    <app-options></app-options>    <app-results></app-results>  </form></section></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CluesComponent', 'selector': 'app-clues'},{'name': 'OptionsComponent', 'selector': 'app-options'},{'name': 'QuizComponent', 'selector': 'app-quiz'},{'name': 'ResultsComponent', 'selector': 'app-results'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'QuizComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'QuizComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

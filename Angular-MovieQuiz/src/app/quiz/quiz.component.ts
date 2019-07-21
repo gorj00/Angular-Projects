@@ -36,11 +36,8 @@ export class QuizComponent implements OnInit {
    */
   moviesToBeGuessed: any[] = [];
 
-  // /**
-  //  * Contains 5 objects of the movies to be guessed
-  //  * (id, title, year, director, actors, images)
-  //  */
-  // moviesToBeGuessedClues: any[] = [];
+  moviePicks = this.moviePickerService
+                   .moviesPicks;
 
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) { }
@@ -162,8 +159,7 @@ export class QuizComponent implements OnInit {
 
     // Picks 5 numbers out of the 15 picks
     this.moviePickerService.moviesToGuess(this
-      .moviePickerService
-      .moviesPicks);
+      .moviePicks);
 
     // Requesting and handling data for the quiz from Movie DB REST API
     this.quizLogic(() => {
