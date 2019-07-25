@@ -9,6 +9,7 @@
               type="radio"
               [id]="titleAndId.id"
               [disabled]="optionsDisabled"
+              [ngClass]="{'disabled-radio': optionsDisabled === true}"
               (click)="onChoose(option)"
               #option />
             {{ titleAndId.title }}

@@ -39,6 +39,11 @@ export class QuizComponent implements OnInit {
   moviePicks = this.moviePickerService
                    .moviesPicks;
 
+  quizProgress = 0;
+  
+  quizCorrect = 0;
+
+
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) { }
 
@@ -178,6 +183,14 @@ export class QuizComponent implements OnInit {
       // console.log(this.moviePickerService.moviesGuessed);
       // console.log(this.moviesToBeGuessed);
     });
+  }
+
+  incrQuizProgress() {
+    this.quizProgress += 20;
+  }
+
+  incrQuizCorrect() {
+    this.quizCorrect += 20;
   }
 
   ngOnInit() {

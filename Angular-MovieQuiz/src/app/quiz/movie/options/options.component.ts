@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-options',
@@ -6,36 +6,25 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./options.component.css']
 })
 export class OptionsComponent implements OnInit {
-  @Input() moviePicks;
   @Input() optionsTitlesAndIds: {};
-  @Input() movieToGuess;
+  @Input() movieToGuessId;
+  @Output() progressIncr = new EventEmitter<any>();
+  @Output() correctIncr = new EventEmitter<any>();
            optionsDisabled = false;
            optionCorrect: boolean;
-           quizCorrect = 0;
-           quizProgress = 0;
 
   constructor() { }
 
   onChoose(option: HTMLInputElement) {
-    this.setQuizProgress(this.quizProgress);
+    this.progressIncr.emit();
     this.optionsDisabled = true;
     // +string => number
-    if (this.movieToGuess === +option.id) {
+    if (this.movieToGuessId === +option.id) {
       this.optionCorrect = true;
-      this.setQuizCorrect(this.quizCorrect);
+      this.correctIncr.emit();
     } else {
       this.optionCorrect = false;
     }
-    console.log(this.quizProgress);
-    console.log(this.quizCorrect);
-  }
-
-  setQuizCorrect(count: number) {
-    count = count + 20;
-  }
-
-  setQuizProgress(count: number) {
-    count = count + 20;
   }
 
   ngOnInit() {
