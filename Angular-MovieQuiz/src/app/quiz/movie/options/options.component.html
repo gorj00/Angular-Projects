@@ -1,14 +1,17 @@
 <h3>Which one do you think it is?</h3>
 <div class="options">
     <div class="option-item"
-      *ngFor="let title of optionsMovieTitles">
-        <label for="mov31">
+      *ngFor="let titleAndId of optionsTitlesAndIds">
+        <label
+          [ngClass]="{'correct-answer'   : optionCorrect === true,
+                      'incorrect-answer' : optionCorrect === false}">
             <input
               type="radio"
-              name="option"
+              [id]="titleAndId.id"
               [disabled]="optionsDisabled"
-              (click)="onChoose()" />
-            {{ title }}
+              (click)="onChoose(option)"
+              #option />
+            {{ titleAndId.title }}
         </label>
     </div>
 </div>

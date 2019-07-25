@@ -29,7 +29,7 @@ export class QuizComponent implements OnInit {
   /**
    * Contains 15 titles (3 movie options per a question)
    */
-  moviesTitles: any[] = [];
+  titlesAndIds: any[] = [];
 
   /**
    * Contains 5 objects of the movies to be guessed
@@ -117,17 +117,21 @@ export class QuizComponent implements OnInit {
    *
    * @see  getMoviePositionInList()
    */
-  setMoviesTitles() {
+  setTitlesAndIds() {
     const titlePosition = 'title';
+    const idPosition = 'id';
     for (let i = 0; i < 5; i++) {
-      this.moviesTitles.push([]);
+      this.titlesAndIds.push([]);
       for (let j = 0; j < 3; j++) {
-        this.moviesTitles[i]
-        .push(
-          this.moviesList
+        this.titlesAndIds[i]
+        .push({
+          id: this.moviesList
+          [this.getMoviePositionInList(i, j)]
+          [idPosition],
+          title: this.moviesList
           [this.getMoviePositionInList(i, j)]
           [titlePosition]
-        ); // end push
+        }); // end push
       } // end for (j)
     } // end for (i)
   }
@@ -165,7 +169,7 @@ export class QuizComponent implements OnInit {
     this.quizLogic(() => {
 
       // Set and store the titles
-      this.setMoviesTitles();
+      this.setTitlesAndIds();
 
       // Set and store the guessed movies IDs
       this.setMoviesObjects();
