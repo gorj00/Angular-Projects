@@ -149,7 +149,7 @@ section img:nth-of-type(odd) {
   font-weight: bold;
 }
 
-input[type='radio'] {
+/* input[type='radio'] {
   width:20px;
   height:20px;
   border:1px solid darkgray;
@@ -169,7 +169,7 @@ input[type='radio']:before {
   height:10px;
   margin: 20% auto;
   border-radius:50%;
-}
+} */
 
 .disabled-radio {
   opacity: 0.1;

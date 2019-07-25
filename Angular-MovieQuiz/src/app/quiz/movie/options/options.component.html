@@ -3,7 +3,11 @@
     <div class="option-item"
       *ngFor="let title of optionsMovieTitles">
         <label for="mov31">
-            <input type="radio" name="option"/>
+            <input
+              type="radio"
+              name="option"
+              [disabled]="optionsDisabled"
+              (click)="onChoose()" />
             {{ title }}
         </label>
     </div>
