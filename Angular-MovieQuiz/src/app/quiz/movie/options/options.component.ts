@@ -7,12 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class OptionsComponent implements OnInit {
   @Input() moviePicks;
-  optionsMovieTitles: {};
+  @Input() optionsMovieTitles: {};
 
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.moviePicks);
     // QUIZ [moviePicks]="moviePicks"></app-options
   }
 

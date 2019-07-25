@@ -1,11 +1,16 @@
 <section
-  *ngFor="let movie of moviesToBeGuessed">
+  *ngFor="let movie of moviesToBeGuessed; index as i">
   <form>
     <app-clues
       [movieOrder]="movie.order"
       [movieID]="movie.id">
     </app-clues>
-    <app-options></app-options>
-    <app-results></app-results>
+
+    <app-options
+      [optionsMovieTitles]="moviesTitles[i]">
+    </app-options>
+
+    <app-results>
+    </app-results>
   </form>
 </section>
