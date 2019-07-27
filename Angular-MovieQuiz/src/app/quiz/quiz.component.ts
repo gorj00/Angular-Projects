@@ -40,7 +40,7 @@ export class QuizComponent implements OnInit {
                    .moviesPicks;
 
   quizProgress = 0;
-  
+
   quizCorrect = 0;
 
 
@@ -185,11 +185,11 @@ export class QuizComponent implements OnInit {
     });
   }
 
-  incrQuizProgress() {
+  incrementQuizProgress() {
     this.quizProgress += 20;
   }
 
-  incrQuizCorrect() {
+  incrementQuizCorrect() {
     this.quizCorrect += 20;
   }
 

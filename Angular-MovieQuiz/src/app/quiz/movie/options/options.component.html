@@ -3,14 +3,14 @@
     <div class="option-item"
       *ngFor="let titleAndId of optionsTitlesAndIds">
         <label
-          [ngClass]="{'correct-answer'   : optionCorrect === true,
-                      'incorrect-answer' : optionCorrect === false}">
+          [for]="titleAndId.id"
+          #chosen>
             <input
               type="radio"
               [id]="titleAndId.id"
               [disabled]="optionsDisabled"
               [ngClass]="{'disabled-radio': optionsDisabled === true}"
-              (click)="onChoose(option)"
+              (click)="onChoose(option, chosen)"
               #option />
             {{ titleAndId.title }}
         </label>

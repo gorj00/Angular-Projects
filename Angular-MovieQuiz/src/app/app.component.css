@@ -139,12 +139,12 @@ section img:nth-of-type(odd) {
   width: 200px;
 }
 
-.correct-answer {
+label.correct-answer {
   color: green;
   font-weight: bold;
 }
 
-.incorrect-answer {
+label.incorrect-answer {
   color: red;
   font-weight: bold;
 }

@@ -9,8 +9,8 @@
     <app-options
       [movieToGuessId]="movie.id"
       [optionsTitlesAndIds]="titlesAndIds[i]"
-      (progressIncr)="incrQuizProgress($event)"
-      (correctIncr)="incrQuizCorrect($event)">
+      (progressIncrement)="incrementQuizProgress($event)"
+      (correctIncrement)="incrementQuizCorrect($event)">
     </app-options>
 
     <app-results>

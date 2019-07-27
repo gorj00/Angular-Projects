@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ElementRef
+} from '@angular/core';
 
 @Component({
   selector: 'app-options',
@@ -6,24 +13,23 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./options.component.css']
 })
 export class OptionsComponent implements OnInit {
-  @Input() optionsTitlesAndIds: {};
-  @Input() movieToGuessId;
-  @Output() progressIncr = new EventEmitter<any>();
-  @Output() correctIncr = new EventEmitter<any>();
-           optionsDisabled = false;
-           optionCorrect: boolean;
+  @Input()  optionsTitlesAndIds: {};
+  @Input()  movieToGuessId;
+  @Output() progressIncrement = new EventEmitter<any>();
+  @Output() correctIncrement  = new EventEmitter<any>();
+            optionsDisabled   = false;
 
   constructor() { }
 
-  onChoose(option: HTMLInputElement) {
-    this.progressIncr.emit();
+  onChoose(option: HTMLInputElement,
+           chosen: HTMLLabelElement) {
+    this.progressIncrement.emit();
     this.optionsDisabled = true;
-    // +string => number
     if (this.movieToGuessId === +option.id) {
-      this.optionCorrect = true;
-      this.correctIncr.emit();
+      this.correctIncrement.emit();
+      chosen.className = 'correct-answer';
     } else {
-      this.optionCorrect = false;
+      chosen.className = 'incorrect-answer';
     }
   }
 
