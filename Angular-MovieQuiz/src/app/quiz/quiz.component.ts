@@ -122,12 +122,13 @@ export class QuizComponent implements OnInit {
       for (let j = 0; j < 3; j++) {
         this.titlesAndIds[i]
         .push({
-          id: this.moviesList
-          [this.getMoviePositionInList(i, j)]
-          [idPosition],
+          id:    this.moviesList
+                 [this.getMoviePositionInList(i, j)]
+                [idPosition],
+
           title: this.moviesList
-          [this.getMoviePositionInList(i, j)]
-          [titlePosition]
+                 [this.getMoviePositionInList(i, j)]
+                 [titlePosition]
         }); // end push
       } // end for (j)
     } // end for (i)
@@ -144,9 +145,10 @@ export class QuizComponent implements OnInit {
       this.moviesToBeGuessed
       .push({
         order: this.moviesOrder[i],
-        id: this.moviesList
-            [this.moviePickerService.moviesGuessed[i]]
-            [id]
+
+        id:    this.moviesList
+               [this.moviePickerService.moviesGuessed[i]]
+               [id]
       }); // end object & push
     } // end for
   }
@@ -160,7 +162,7 @@ export class QuizComponent implements OnInit {
    * assigned to the component variables
    * (which will result in variables being undefined)
    *
-   * @param cb
+   * @param cb              callback function
    * @see   setMoviesList()
    */
   quizLogic(cb) {
