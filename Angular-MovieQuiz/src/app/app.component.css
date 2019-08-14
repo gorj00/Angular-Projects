@@ -19,24 +19,17 @@ body {
 }
 
 #main {
+  background-color: #ffffff;
   width: 800px;
-  margin: 0 auto;
-
-}
-
-.main-pad {
+  margin: 110px auto 50px;
+  padding: 30px;
   box-shadow: 0 0 172px 7px rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 0 0 172px 7px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 0 172px 7px rgba(0, 0, 0, 0.15);
-  padding: 30px;
-  border: 1px dashed #abebe8;
-
-
 }
 
 .border {
-  margin: 110px auto 50px;
-  background: #ffffff;
+  border: 1px dashed #abebe8;
 }
 
 form {
