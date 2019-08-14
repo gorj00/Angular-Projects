@@ -40,7 +40,6 @@ export class QuizComponent implements OnInit {
                    .moviesPicks;
 
   quizProgress = 0;
-
   quizCorrect = 0;
 
 
@@ -142,13 +141,12 @@ export class QuizComponent implements OnInit {
   setMoviesObjects() {
     const id = 'id';
     for (let i = 0; i < 5; i++) {
-      this.moviesToBeGuessed
-      .push({
+      this.moviesToBeGuessed.push({
         order: this.moviesOrder[i],
 
-        id:    this.moviesList
-               [this.moviePickerService.moviesGuessed[i]]
-               [id]
+        id:    this
+               .moviesList[this.moviePickerService
+               .moviesGuessed[i]][id]
       }); // end object & push
     } // end for
   }
