@@ -188,10 +188,12 @@ export class QuizComponent implements OnInit {
 
       // Set and store the guessed movies IDs
       this.setMoviesObjects();
-      // console.log(this.moviesList);
-      // console.log(this.moviePickerService.moviesPicks);
-      // console.log(this.moviePickerService.moviesGuessed);
-      // console.log(this.moviesToBeGuessed);
+
+      // Test if needed
+        // console.log(this.moviesList);
+        // console.log(this.moviePickerService.moviesPicks);
+        // console.log(this.moviePickerService.moviesGuessed);
+        // console.log(this.moviesToBeGuessed);
     });
   }
 
