@@ -19,17 +19,24 @@ body {
 }
 
 #main {
-  background-color: #ffffff;
   width: 800px;
-  margin: 110px auto 50px;
-  padding: 30px;
+  margin: 0 auto;
+
+}
+
+.main-pad {
   box-shadow: 0 0 172px 7px rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 0 0 172px 7px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 0 172px 7px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  border: 1px dashed #abebe8;
+
+
 }
 
 .border {
-  border: 1px dashed #abebe8;
+  margin: 110px auto 50px;
+  background: #ffffff;
 }
 
 form {
@@ -56,11 +63,13 @@ h1, h1 a {
   text-decoration: none;
   color: #00a482;
 }
+
 header span {
   display: block;
   color: #6cbea2;
   letter-spacing: 10px;
   font-weight: normal;
+  padding: 0 0 70px 0;
 }
 
 section {
@@ -140,7 +149,7 @@ section img:nth-of-type(odd) {
 }
 
 label.correct-answer {
-  color: green;
+  color: #009174;
   font-weight: bold;
 }
 
@@ -183,4 +192,32 @@ input[type='radio']:before {
 .results span {
   display: block;
   font-size: 20px;
+}
+
+.mat-progress-bar-fill::after {
+  background: #00a482;
+}
+
+header p {
+  margin: 0 auto 30px auto;
+  font-size: 17px;
+  color: #8eb4a7;
+  font-weight: normal;
+  width: 80%;
+}
+
+a.quiz-link {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: #00a482;
+  padding: 10px 35px 10px 35px;
+  text-decoration: none;
+  letter-spacing: 5px;
+  font-weight: normal;
+}
+
+a.quiz-link:hover {
+  background: #15c4a1;
+  text-decoration: none;
 }

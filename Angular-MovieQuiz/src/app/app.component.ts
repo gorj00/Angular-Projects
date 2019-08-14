@@ -7,7 +7,4 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 
-export class AppComponent {
-  siteTitle = 'Guess the Movie';
-  siteSubtitle = 'QUIZZ';
-}
+export class AppComponent {}

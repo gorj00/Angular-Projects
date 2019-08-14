@@ -5,15 +5,14 @@
       [movieOrder]="movie.order"
       [movieID]="movie.id">
     </app-clues>
-
     <app-options
       [movieToGuessId]="movie.id"
       [optionsTitlesAndIds]="titlesAndIds[i]"
       (progressIncrement)="incrementQuizProgress($event)"
       (correctIncrement)="incrementQuizCorrect($event)">
     </app-options>
-
-    <app-results>
-    </app-results>
   </form>
 </section>
+<mat-progress-bar
+  [value]="quizProgress">
+</mat-progress-bar>

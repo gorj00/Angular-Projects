@@ -1,11 +1,7 @@
 <div id="main">
-  <div class="border">
-      <header>
-          <h1 ><a href="/">{{ siteTitle }}</a></h1>
-          <span>&mdash; {{ siteSubtitle }} &mdash;</span>
-      </header>
-      <main>
-        <app-quiz></app-quiz>
-      </main>
+  <div class="main-pad">
+    <div class="border">
+      <router-outlet></router-outlet>
     </div>
+  </div>
 </div>
