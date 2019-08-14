@@ -47,6 +47,14 @@ export class QuizComponent implements OnInit {
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) { }
 
+  incrementQuizProgress() {
+    this.quizProgress += 20;
+  }
+
+  incrementQuizCorrect() {
+    this.quizCorrect += 20;
+  }
+
   /**
    * Method returns an array of numbers starting from 1 to param(num)
    * for ngFor that renders the wanted number of movies for the quiz
@@ -102,22 +110,6 @@ export class QuizComponent implements OnInit {
   }
 
   /**
-   * All quiz logic handling movie list data must be passed as
-   * a callback function to this method due to data being assigned
-   * to compopenent variables from an observable
-   *
-   * Otherwise all of the logic is executed prior to data being
-   * assigned to the component variables
-   * (which will result in variables being undefined)
-   *
-   * @param cb
-   * @see   setMoviesList()
-   */
-  quizLogic(cb) {
-    this.setMoviesList().subscribe(cb);
-  }
-
-  /**
    * Extracts the quiz' movie titles
    *
    * @see  getMoviePositionInList()
@@ -160,6 +152,22 @@ export class QuizComponent implements OnInit {
   }
 
   /**
+   * All quiz logic handling movie list data must be passed as
+   * a callback function to this method due to data being assigned
+   * to compopenent variables from an observable
+   *
+   * Otherwise all of the logic is executed prior to data being
+   * assigned to the component variables
+   * (which will result in variables being undefined)
+   *
+   * @param cb
+   * @see   setMoviesList()
+   */
+  quizLogic(cb) {
+    this.setMoviesList().subscribe(cb);
+  }
+
+  /**
    * Creates a quiz
    */
   createQuiz() {
@@ -178,19 +186,11 @@ export class QuizComponent implements OnInit {
 
       // Set and store the guessed movies IDs
       this.setMoviesObjects();
-      console.log(this.moviesList);
-      console.log(this.moviePickerService.moviesPicks);
-      console.log(this.moviePickerService.moviesGuessed);
-      console.log(this.moviesToBeGuessed);
+      // console.log(this.moviesList);
+      // console.log(this.moviePickerService.moviesPicks);
+      // console.log(this.moviePickerService.moviesGuessed);
+      // console.log(this.moviesToBeGuessed);
     });
-  }
-
-  incrementQuizProgress() {
-    this.quizProgress += 20;
-  }
-
-  incrementQuizCorrect() {
-    this.quizCorrect += 20;
   }
 
   ngOnInit() {
