@@ -101,9 +101,9 @@ export class QuizComponent implements OnInit {
     return this.movieContentService
     .getMoviesObservables()
     .pipe(
-      map(response => {
-        for (let i = 0; i < 5; i++) {
-          this.moviesList.push(...response[i].results);
+      map(moviesPages => {
+        for (const moviesPage of moviesPages) {
+          this.moviesList.push(...moviesPage.results);
         } // end for
       }) // end cb & map
     ); // end pipe
