@@ -1,6 +1,7 @@
 Angular Movie Quiz TODO list:
  - progress bar @done
- - welcome component
+   -- style around
+ - welcome component @done
    -- styling link
  - routing: welcome - quiz @done
  - routing: quiz question - another quiz question
