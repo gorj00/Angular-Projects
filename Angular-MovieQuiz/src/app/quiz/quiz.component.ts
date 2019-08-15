@@ -40,6 +40,7 @@ export class QuizComponent implements OnInit {
 
   quizProgress = 0;
   quizCorrect = 0;
+  spinnerStatus = true;
 
   constructor(
     private moviePickerService: MoviePickerService,
@@ -151,15 +152,19 @@ export class QuizComponent implements OnInit {
    * assigned to the component variables
    * (which will result in variables being undefined)
    *
-   * @param cb              callback function
+   * @param callbackFunction              callback function
    * @see   setMoviesList()
    */
-  quizLogic(cb) {
+  quizLogic(callbackFunction) {
     this.setMoviesList().subscribe(
-      cb,
-      error => console.log(error),
+      callbackFunction,
+      error => {
+        console.log(error);
+      },
       () => {
-        //
+        setTimeout(() => {
+          this.spinnerStatus = false;
+        }, 500);
       }
     );
   }

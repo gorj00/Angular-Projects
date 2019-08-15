@@ -30,6 +30,7 @@ body {
 
 .border {
   border: 1px dashed #abebe8;
+  position: relative;
 }
 
 form {
@@ -214,3 +215,9 @@ a.quiz-link:hover {
   background: #15c4a1;
   text-decoration: none;
 }
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #00a383;
+}
+
