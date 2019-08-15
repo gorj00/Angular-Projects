@@ -9,8 +9,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { StartComponent } from './quiz/start/start.component';
 import { RouterModule, Routes } from '@angular/router';
+import { LoadingComponent } from './effects/loading/loading.component';
 
 const appRoutes: Routes = [
   { path: '', component: StartComponent },
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     CluesComponent,
     OptionsComponent,
     ResultsComponent,
-    StartComponent
+    StartComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     MatProgressBarModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

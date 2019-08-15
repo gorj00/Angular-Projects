@@ -155,7 +155,13 @@ export class QuizComponent implements OnInit {
    * @see   setMoviesList()
    */
   quizLogic(cb) {
-    this.setMoviesList().subscribe(cb);
+    this.setMoviesList().subscribe(
+      cb,
+      error => console.log(error),
+      () => {
+        //
+      }
+    );
   }
 
   /**
