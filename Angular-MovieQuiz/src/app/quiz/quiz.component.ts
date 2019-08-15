@@ -40,7 +40,7 @@ export class QuizComponent implements OnInit {
 
   quizProgress = 0;
   quizCorrect = 0;
-  spinnerStatus = true;
+  loadingStatus = true;
 
   constructor(
     private moviePickerService: MoviePickerService,
@@ -163,7 +163,7 @@ export class QuizComponent implements OnInit {
       },
       () => {
         setTimeout(() => {
-          this.spinnerStatus = false;
+          this.loadingStatus = false;
         }, 500);
       }
     );

@@ -1,5 +1,5 @@
 # Angular Projects
-## [#1 Movie Quiz (ENG) [70 % finished]](./Angular-MovieQuiz) 
+## [#1 Movie Quiz (ENG) [80 % finished]](./Angular-MovieQuiz) 
 - conversion of plain [JS app (Movie Quiz)](../../../JavaScript-Projects) to 
 Angular,
 - I want this app to be more component based architecture for the purpose of 
@@ -8,7 +8,8 @@ app,
 - **keywords:** 
   - external API ([The Movie DB](https://www.themoviedb.org/))
   - HttpClient
-  - Observables
+  - Observables, Reactive Programming (RxJS)
   - Dependency Injection
   - Components parent/child communication (Input, Output)
-  - Animations
+  - Angular Material
+
