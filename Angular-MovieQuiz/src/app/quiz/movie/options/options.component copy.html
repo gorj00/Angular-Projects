@@ -1,0 +1,18 @@
+<h3>Which one do you think it is?</h3>
+<div class="options">
+    <div class="option-item"
+      *ngFor="let titleAndId of optionsTitlesAndIds">
+        <label
+          [for]="titleAndId.id"
+          #chosen>
+            <input
+              type="radio"
+              [id]="titleAndId.id"
+              [disabled]="optionsDisabled"
+              [ngClass]="{'disabled-radio': optionsDisabled === true}"
+              (click)="onChoose(option, chosen)"
+              #option />
+            {{ titleAndId.title }}
+        </label>
+    </div>
+</div>
