@@ -4,9 +4,9 @@ import { MovieContentService } from 'src/app/services/movie-content.service';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: "app-quiz",
-  templateUrl: "./quiz.component.html",
-  styleUrls: ["./quiz.component.css"],
+  selector: 'app-quiz',
+  templateUrl: './quiz.component.html',
+  styleUrls: ['./quiz.component.css'],
   providers: [MoviePickerService, MovieContentService]
 })
 export class QuizComponent implements OnInit {
@@ -83,7 +83,7 @@ export class QuizComponent implements OnInit {
       return this.moviePickerService.moviesPicks[questionOrder][movieOrder];
     } else {
       console.log(
-        "Movie position in list outside of range (quiz.component.ts)"
+        'Movie position in list outside of range (quiz.component.ts).'
       );
     }
   }
@@ -94,7 +94,8 @@ export class QuizComponent implements OnInit {
    * @see  moviesList
    */
   setMoviesList() {
-    return this.movieContentService.getMoviesObservables().pipe(
+    return this.movieContentService.getMoviesObservables()
+    .pipe(
       map(moviesPages => {
         for (const moviesPage of moviesPages) {
           this.moviesList.push(...moviesPage.results);
@@ -109,8 +110,8 @@ export class QuizComponent implements OnInit {
    * @see  getMoviePositionInList()
    */
   setTitlesAndIds() {
-    const titlePosition = "title";
-    const idPosition = "id";
+    const titlePosition = 'title';
+    const idPosition = 'id';
     for (let i = 0; i < 5; i++) {
       this.titlesAndIds.push([]);
       for (let j = 0; j < 3; j++) {
@@ -131,7 +132,7 @@ export class QuizComponent implements OnInit {
    * @see  getMoviePositionInList()
    */
   setMoviesObjects() {
-    const id = "id";
+    const id = 'id';
     for (let i = 0; i < 5; i++) {
       this.moviesToBeGuessed.push({
         order: this.moviesOrder[i],
