@@ -8,3 +8,5 @@ Angular Movie Quiz TODO list:
  - routing: all questions answered - results
  - animation: between questions
  - results messages
+ - input change into angular material or delete from module
+ - stepper Angular Material for questions

@@ -10,10 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatRadioModule } from '@angular/material/radio';
 import { StartComponent } from './quiz/start/start.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoadingComponent } from './effects/loading/loading.component';
+import { ProgressBottomComponent } from './effects/progress-bottom/progress-bottom.component';
 
 const appRoutes: Routes = [
   { path: '', component: StartComponent },
@@ -28,7 +28,8 @@ const appRoutes: Routes = [
     OptionsComponent,
     ResultsComponent,
     StartComponent,
-    LoadingComponent
+    LoadingComponent,
+    ProgressBottomComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,6 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    MatRadioModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
