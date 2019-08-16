@@ -3,6 +3,10 @@ import { MovieContentService } from 'src/app/services/movie-content.service';
 import { Config } from 'protractor';
 import { map } from 'rxjs/operators';
 
+// Iterfaces import
+import { IMovieObject } from '../../../interfaces/movie-object.interface';
+import { IMovieClues } from '../../../interfaces/movie-clues.interface';
+
 @Component({
   selector: 'app-clues',
   templateUrl: './clues.component.html',
@@ -28,7 +32,7 @@ export class CluesComponent implements OnInit {
     .getMoviesObjectsObservables(this.movieID)
       .pipe(
         map(
-          (response: Config) => {
+          (response: IMovieObject) => {
             // Storing the first four movie image objects into an array
             const imgObjects = response
             .images
@@ -41,7 +45,8 @@ export class CluesComponent implements OnInit {
               );
 
             // Store movie movie movie years
-            this.moviesYears.push(response
+            this.moviesYears.push(
+              +response
               .release_date
               .substring(0, 4)
               );
@@ -54,12 +59,12 @@ export class CluesComponent implements OnInit {
    * Setting Director property
    *
    * @param res Server response
-   * @param obj Movie crew object
+   * @param arr Movie crew object
    */
-  setDirector(res: Config, obj: any) {
+  setDirector(res: IMovieClues, arr: string[]) {
     res.crew.forEach(entry => {
       if (entry.job === 'Director') {
-        obj.push(entry.name);
+        arr.push(entry.name);
       }
     });
   }
@@ -70,7 +75,7 @@ export class CluesComponent implements OnInit {
    * @param res Server response
    * @param arr Cast array
    */
-  setCast(res: Config, arr: any) {
+  setCast(res: IMovieClues, arr: IMovieClues['cast'][]) {
     arr.push(res.cast.slice(0, 4));
   }
 
@@ -82,7 +87,7 @@ export class CluesComponent implements OnInit {
     .getMoviesCluesObservables(this.movieID)
       .pipe(
         map(
-          (response: Config) => {
+          (response: IMovieClues) => {
             const year = this.moviesYears;
             const director = [];
             const cast = [];

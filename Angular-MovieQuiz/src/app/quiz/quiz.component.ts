@@ -3,6 +3,9 @@ import { MoviePickerService } from 'src/app/services/movie-picker.service';
 import { MovieContentService } from 'src/app/services/movie-content.service';
 import { map } from 'rxjs/operators';
 
+// Interfaces import
+import { IMoviesPage } from '../interfaces/movies-page.interface';
+
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -97,11 +100,14 @@ export class QuizComponent implements OnInit {
   setMoviesList() {
     return this.movieContentService.getMoviesObservables()
     .pipe(
-      map(moviesPages => {
+      map(
+        (moviesPages: IMoviesPage[]) => {
+        // moviesPages => {
         for (const moviesPage of moviesPages) {
           this.moviesList.push(...moviesPage.results);
         } // end for
-      }) // end cb & map
+      }
+      ) // end cb & map
     ); // end pipe
   }
 
@@ -111,17 +117,17 @@ export class QuizComponent implements OnInit {
    * @see  getMoviePositionInList()
    */
   setTitlesAndIds() {
-    const titlePosition = 'title';
-    const idPosition = 'id';
     for (let i = 0; i < 5; i++) {
       this.titlesAndIds.push([]);
       for (let j = 0; j < 3; j++) {
         this.titlesAndIds[i].push({
-          id: this.moviesList[this.getMoviePositionInList(i, j)][idPosition],
+          id:    this.moviesList
+                 [this.getMoviePositionInList(i, j)]
+                 .id,
 
-          title: this.moviesList[this.getMoviePositionInList(i, j)][
-            titlePosition
-          ]
+          title: this.moviesList
+                 [this.getMoviePositionInList(i, j)]
+                 .title
         }); // end push
       } // end for (j)
     } // end for (i)
@@ -133,12 +139,13 @@ export class QuizComponent implements OnInit {
    * @see  getMoviePositionInList()
    */
   setMoviesObjects() {
-    const id = 'id';
     for (let i = 0; i < 5; i++) {
       this.moviesToBeGuessed.push({
         order: this.moviesOrder[i],
 
-        id: this.moviesList[this.moviePickerService.moviesGuessed[i]][id]
+        id:    this.moviesList
+               [this.moviePickerService.moviesGuessed[i]]
+               .id
       }); // end object & push
     } // end for
   }
