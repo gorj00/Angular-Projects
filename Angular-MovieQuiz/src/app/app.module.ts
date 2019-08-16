@@ -7,13 +7,15 @@ import { OptionsComponent } from './quiz/movie/options/options.component';
 import { ResultsComponent } from './quiz/results/results.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { StartComponent } from './quiz/start/start.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoadingComponent } from './effects/loading/loading.component';
 import { ProgressBottomComponent } from './effects/progress-bottom/progress-bottom.component';
+
+// Angular Material Imports
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const appRoutes: Routes = [
   { path: '', component: StartComponent },
