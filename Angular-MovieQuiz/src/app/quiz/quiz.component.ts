@@ -78,13 +78,14 @@ export class QuizComponent implements OnInit {
    * @param questionOrder   0-4 (5 questions in quiz)
    * @param movieOrder      0-2 (3 movie options per question)
    */
-  getMoviePositionInList(questionOrder: number, movieOrder: number): number {
-    if (
-      questionOrder < 5 &&
-      movieOrder < 3 &&
-      (questionOrder >= 0 && movieOrder >= 0)
-    ) {
-      return this.moviePickerService.moviesPicks[questionOrder][movieOrder];
+  getMoviePositionInList(questionOrder: number,
+                         movieOrder: number): number {
+    if ((questionOrder < 5 && movieOrder < 3) &&
+        (questionOrder >= 0 && movieOrder >= 0)) {
+      return this.moviePickerService
+                 .moviesPicks
+                 [questionOrder]
+                 [movieOrder];
     } else {
       console.log(
         'Movie position in list outside of range (quiz.component.ts).'
