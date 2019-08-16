@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 
+// Interfaces import
+import { IMoviesPage } from '../interfaces/movies-page.interface';
+import { IMovieObject } from '../interfaces/movie-object.interface';
+import { IMovieClues } from '../interfaces/movie-clues.interface';
+
 @Injectable()
 export class MovieContentService {
   baseUrl = 'https://api.themoviedb.org/3/';
@@ -19,7 +24,7 @@ export class MovieContentService {
    * @returns  Observable
    */
   getMoviesPerPage(page: number) {
-    return this.http.get(this.baseUrl + 'discover/movie' +
+    return this.http.get<IMoviesPage>(this.baseUrl + 'discover/movie' +
       this.apiKeyPart + '&language=en-US' +
       '&sort_by=popularity.desc' +
       '&include_adult=false' +
@@ -47,7 +52,7 @@ export class MovieContentService {
    * @returns           JSON object movie with its properties
    */
   getMoviesObjectsObservables(movieId: number) {
-    return this.http.get(this.baseUrl + 'movie/' + movieId + this.apiKeyPart +
+    return this.http.get<IMovieObject>(this.baseUrl + 'movie/' +           movieId + this.apiKeyPart +
       '&language=en-US' +
       '&append_to_response=images' +
       '&include_image_language=en,' +
@@ -55,8 +60,8 @@ export class MovieContentService {
   }
 
   getMoviesCluesObservables(movieId: number) {
-    return this.http.get(this.baseUrl + 'movie/' + movieId + '/credits' +
-    this.apiKeyPart);
+    return this.http.get<IMovieClues>(this.baseUrl +     'movie/' + movieId + '/credits' +
+      this.apiKeyPart);
   }
 
 }
