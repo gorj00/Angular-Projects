@@ -80,7 +80,7 @@ export class QuizComponent implements OnInit {
    */
   getMoviePositionInList(questionOrder: number,
                          movieOrder: number): number {
-    if ((questionOrder < 5 && movieOrder < 3) &&
+    if ((questionOrder <= 4 && movieOrder <= 2) &&
         (questionOrder >= 0 && movieOrder >= 0)) {
       return this.moviePickerService
                  .moviesPicks
