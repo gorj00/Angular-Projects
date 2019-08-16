@@ -102,11 +102,11 @@ export class QuizComponent implements OnInit {
     .pipe(
       map(
         (moviesPages: IMoviesPage[]) => {
-        for (const moviesPage of moviesPages) {
-          this.moviesList.push(...moviesPage.results);
-        } // end for
-      }
-      ) // end cb & map
+          for (const moviesPage of moviesPages) {
+            this.moviesList.push(...moviesPage.results);
+          } // end for
+        } // end response
+      ) // end map
     ); // end pipe
   }
 
