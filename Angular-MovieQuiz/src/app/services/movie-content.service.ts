@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 
 // Interfaces import
 import { IMoviesPage } from '../interfaces/movies-page.interface';
@@ -12,7 +12,7 @@ export class MovieContentService {
   baseUrl = 'https://api.themoviedb.org/3/';
   apiKeyPrefix = '?api_key=';
   apiKey = 'a5357212f9c747dac679fc5ab1aa7ca9';
-  apiKeyPart = this.apiKeyPrefix + this.apiKey;
+  apiKeyPart: string = this.apiKeyPrefix + this.apiKey;
 
   constructor(private http: HttpClient) {}
 
@@ -24,12 +24,17 @@ export class MovieContentService {
    * @returns  Observable
    */
   getMoviesPerPage(page: number) {
-    return this.http.get<IMoviesPage>(this.baseUrl + 'discover/movie' +
-      this.apiKeyPart + '&language=en-US' +
-      '&sort_by=popularity.desc' +
-      '&include_adult=false' +
-      '&with_original_language=en' +
-      '&page=' + page);
+    return this.http.get<IMoviesPage>(
+      this.baseUrl +
+        'discover/movie' +
+        this.apiKeyPart +
+        '&language=en-US' +
+        '&sort_by=popularity.desc' +
+        '&include_adult=false' +
+        '&with_original_language=en' +
+        '&page=' +
+        page
+    );
   }
 
   /**
@@ -52,16 +57,25 @@ export class MovieContentService {
    * @returns           JSON object movie with its properties
    */
   getMoviesObjectsObservables(movieId: number) {
-    return this.http.get<IMovieObject>(this.baseUrl + 'movie/' +           movieId + this.apiKeyPart +
-      '&language=en-US' +
-      '&append_to_response=images' +
-      '&include_image_language=en,' +
-      'null');
+    return this.http.get<IMovieObject>(
+      this.baseUrl +
+        'movie/' +
+        movieId +
+        this.apiKeyPart +
+        '&language=en-US' +
+        '&append_to_response=images' +
+        '&include_image_language=en,' +
+        'null'
+    );
   }
 
   getMoviesCluesObservables(movieId: number) {
-    return this.http.get<IMovieClues>(this.baseUrl +     'movie/' + movieId + '/credits' +
-      this.apiKeyPart);
+    return this.http.get<IMovieClues>(
+      this.baseUrl +
+        'movie/' +
+        movieId +
+        '/credits' +
+        this.apiKeyPart
+    );
   }
-
 }

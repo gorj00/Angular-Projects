@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProgressBottomComponent implements OnInit {
 
-  @Input() progressValue;
+  @Input() progressValue: number;
 
   constructor() { }
 
