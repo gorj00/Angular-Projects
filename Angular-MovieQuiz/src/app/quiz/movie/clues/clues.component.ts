@@ -21,12 +21,6 @@ export class CluesComponent implements OnInit {
 
   constructor(private movieContentService: MovieContentService) { }
 
-  /**
-   * Gets the movie's 4 image URLs
-   *
-   * Movie object image URLs location:
-   * Fetched Data → images → backdrops → file_path
-   */
   setImages() {
     return this.movieContentService
     .getMoviesObjectsObservables(this.movieID)
@@ -55,12 +49,6 @@ export class CluesComponent implements OnInit {
       ); // end pipe
   }
 
-  /**
-   * Setting Director property
-   *
-   * @param res Server response
-   * @param arr Movie crew object
-   */
   setDirector(res: IMovieClues, arr: string[]) {
     res.crew.forEach(entry => {
       if (entry.job === 'Director') {
@@ -69,19 +57,10 @@ export class CluesComponent implements OnInit {
     });
   }
 
-  /**
-   * Setting Cast property
-   *
-   * @param res Server response
-   * @param arr Cast array
-   */
   setCast(res: IMovieClues, arr: IMovieClues['cast'][]) {
     arr.push(res.cast.slice(0, 4));
   }
 
-  /**
-   * Setting entire movie clue object
-   */
   setMoviesClues() {
     return this.movieContentService
     .getMoviesCluesObservables(this.movieID)
@@ -112,28 +91,14 @@ export class CluesComponent implements OnInit {
       ); // end pipe
   }
 
-  /**
-   * Setting images and years to component property
-   *
-   * @param cb Callback function
-   */
   imagesAndYearLogic(cb) {
     this.setImages().subscribe(cb);
   }
 
-  /**
-   * Setting movie clues to component property
-   *
-   * @param cb Callback function
-   */
   moviesCluesLogic(cb) {
     this.setMoviesClues().subscribe(cb);
   }
 
-  /**
-   * Gathers all of the clues and sets a movie clues object
-   * into a component property
-   */
   gatherClues() {
     // Storing images and years
     this.imagesAndYearLogic(() => {

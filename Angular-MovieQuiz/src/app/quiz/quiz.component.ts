@@ -13,34 +13,13 @@ import { IMoviesPage } from '../interfaces/movies-page.interface';
   providers: [MoviePickerService, MovieContentService]
 })
 export class QuizComponent implements OnInit {
-  /**
-   * Total number of movie questions where user guesses the
-   * correct movie with the help of provided clues
-   */
+
   totalNumberOfMovies = 5;
-
-  /**
-   * Array of movie orders in the quiz
-   */
   moviesOrder: number[] = this.numToArray(this.totalNumberOfMovies);
-
-  /**
-   * This list contains 100 recent and popular movies
-   */
   moviesList: any[] = [];
-
-  /**
-   * Contains 15 titles (3 movie options per a question)
-   */
   titlesAndIds: any[] = [];
-
-  /**
-   * Contains 5 objects of the movies to be guessed
-   */
   moviesToBeGuessed: any[] = [];
-
   moviePicks = this.moviePickerService.moviesPicks;
-
   quizProgress = 0;
   quizCorrect = 0;
   loadingStatus = true;
@@ -58,26 +37,10 @@ export class QuizComponent implements OnInit {
     this.quizCorrect += 20;
   }
 
-  /**
-   * Method returns an array of numbers starting from 1 to param(num)
-   * for ngFor that renders the wanted number of movies for the quiz
-   *
-   * @param   num number of movies that will be displayed
-   * @returns     numbers array
-   * @example     [1, 2, 3] for param(num) = 3
-   */
   numToArray(num: number): number[] {
-    /* Creates array filled with the number, then takes their key
-       and creates an array out of them, then increments them by 1 */
     return [...Array(num).keys()].map(item => item + 1);
   }
 
-  /**
-   * Get position of a movie in movie picks matrix
-   *
-   * @param questionOrder   0-4 (5 questions in quiz)
-   * @param movieOrder      0-2 (3 movie options per question)
-   */
   getMoviePositionInList(questionOrder: number,
                          movieOrder: number): number {
     if ((questionOrder <= 4 && movieOrder <= 2) &&
@@ -93,11 +56,6 @@ export class QuizComponent implements OnInit {
     }
   }
 
-  /**
-   * Stores 100 movies into the component variable
-   *
-   * @see  moviesList
-   */
   setMoviesList() {
     return this.movieContentService.getMoviesObservables()
     .pipe(
@@ -111,11 +69,6 @@ export class QuizComponent implements OnInit {
     ); // end pipe
   }
 
-  /**
-   * Extracts the quiz' movie titles
-   *
-   * @see  getMoviePositionInList()
-   */
   setTitlesAndIds() {
     for (let i = 0; i < 5; i++) {
       this.titlesAndIds.push([]);
@@ -133,11 +86,6 @@ export class QuizComponent implements OnInit {
     } // end for (i)
   }
 
-  /**
-   * Extracts the quiz' movie IDs
-   *
-   * @see  getMoviePositionInList()
-   */
   setMoviesObjects() {
     for (let i = 0; i < 5; i++) {
       this.moviesToBeGuessed.push({
@@ -150,18 +98,6 @@ export class QuizComponent implements OnInit {
     } // end for
   }
 
-  /**
-   * All quiz logic handling movie list data must be passed as
-   * a callback function to this method due to data being assigned
-   * to compopenent variables from an observable
-   *
-   * Otherwise all of the logic is executed prior to data being
-   * assigned to the component variables
-   * (which will result in variables being undefined)
-   *
-   * @param cb              callback function
-   * @see   setMoviesList()
-   */
   quizLogic(cb) {
     this.setMoviesList().subscribe(
       cb,
@@ -174,9 +110,6 @@ export class QuizComponent implements OnInit {
     );
   }
 
-  /**
-   * Creates a quiz
-   */
   createQuiz() {
     // Picks 15 numbers out of 100
     this.moviePickerService.pickMoviesMatrix();
