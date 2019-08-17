@@ -18,10 +18,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MovieComponent } from './quiz/movie/movie.component';
 
 const appRoutes: Routes = [
   { path: '', component: StartComponent },
-  { path: 'quiz', component: QuizComponent}
+  { path: 'quiz', component: MovieComponent }
 ];
 
 @NgModule({
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     ResultsComponent,
     StartComponent,
     LoadingComponent,
-    ProgressBottomComponent
+    ProgressBottomComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,

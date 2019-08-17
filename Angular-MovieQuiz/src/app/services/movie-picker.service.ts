@@ -5,7 +5,7 @@ import { MovieContentService } from './movie-content.service';
 export class MoviePickerService {
   moviesTotal = this.movieContentService.moviesTotal;
   moviesPicks: number[][] = [];
-  moviesGuessed: number[] =[];
+  moviesGuessed: number[] = [];
 
   constructor(private movieContentService: MovieContentService) {}
 

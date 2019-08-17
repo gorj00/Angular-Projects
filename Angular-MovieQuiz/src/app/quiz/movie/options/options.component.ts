@@ -6,12 +6,15 @@ import {
   EventEmitter
 } from '@angular/core';
 
+import { Router} from '@angular/router';
+
 @Component({
   selector: 'app-options',
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.css']
 })
 export class OptionsComponent implements OnInit {
+
   @Input()  optionsTitlesAndIds: {
               id: number,
               title: string
@@ -21,7 +24,7 @@ export class OptionsComponent implements OnInit {
   @Output() correctIncrement  = new EventEmitter<void>();
             optionsDisabled   = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   onChoose(option: HTMLInputElement,
            chosen: HTMLLabelElement) {
