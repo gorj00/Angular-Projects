@@ -3,8 +3,7 @@ import {
   OnInit,
   Input,
   Output,
-  EventEmitter,
-  ElementRef
+  EventEmitter
 } from '@angular/core';
 
 @Component({

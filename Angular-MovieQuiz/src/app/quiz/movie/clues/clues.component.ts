@@ -89,8 +89,8 @@ export class CluesComponent implements OnInit {
         map(
           (response: IMovieClues) => {
             const year = this.moviesYears;
-            const director = [];
-            const cast = [];
+            const director: string[] = [];
+            const cast: IMovieClues['cast'][] = [];
             const images = this.cluesImgs;
             let castString: string;
 
