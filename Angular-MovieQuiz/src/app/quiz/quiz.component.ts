@@ -159,15 +159,13 @@ export class QuizComponent implements OnInit {
    * assigned to the component variables
    * (which will result in variables being undefined)
    *
-   * @param callbackFunction              callback function
+   * @param cb              callback function
    * @see   setMoviesList()
    */
-  quizLogic(callbackFunction) {
+  quizLogic(cb) {
     this.setMoviesList().subscribe(
-      callbackFunction,
-      error => {
-        console.log(error);
-      },
+      cb,
+      error => console.log(error),
       () => {
         setTimeout(() => {
           this.loadingStatus = false;
