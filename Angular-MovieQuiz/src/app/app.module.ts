@@ -17,6 +17,7 @@ import { MovieContentService } from './services/movie-content.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatStepperModule } from '@angular/material/stepper';
 
 const appRoutes: Routes = [
   { path: '', component: StartComponent },
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatStepperModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [MovieContentService],
