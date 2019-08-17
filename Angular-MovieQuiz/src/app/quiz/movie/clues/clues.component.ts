@@ -15,6 +15,7 @@ import { IMovieClues } from '../../../interfaces/movie-clues.interface';
 export class CluesComponent implements OnInit {
   @Input() movieOrder: number;
   @Input() movieID: number;
+  @Input() moviesTotal: number;
            cluesImgs: string[] = [];
            moviesYears: number[] = [];
            moviesClues: {

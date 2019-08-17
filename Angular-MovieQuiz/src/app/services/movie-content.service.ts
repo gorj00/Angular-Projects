@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin, Observable } from 'rxjs';
+import { forkJoin } from 'rxjs';
 
 // Interfaces import
 import { IMoviesPage } from '../interfaces/movies-page.interface';
@@ -9,6 +9,7 @@ import { IMovieClues } from '../interfaces/movie-clues.interface';
 
 @Injectable()
 export class MovieContentService {
+  moviesTotal = 7;
   baseUrl = 'https://api.themoviedb.org/3/';
   apiKeyPrefix = '?api_key=';
   apiKey = 'a5357212f9c747dac679fc5ab1aa7ca9';
@@ -20,7 +21,7 @@ export class MovieContentService {
    * Returns a page with 20 movies to pick three
    * for one question
    *
-   * @param    page       (1-5)
+   * @param    page       (1 - this.moviesTotal)
    * @returns  Observable
    */
   getMoviesPerPage(page: number) {
@@ -44,7 +45,7 @@ export class MovieContentService {
    */
   getMoviesObservables() {
     const moviePages: any[] = [];
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= this.moviesTotal; i++) {
       moviePages.push(this.getMoviesPerPage(i));
     }
     return forkJoin([...moviePages]);

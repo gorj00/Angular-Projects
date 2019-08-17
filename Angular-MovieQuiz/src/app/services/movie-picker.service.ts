@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { MovieContentService } from './movie-content.service';
 
 @Injectable()
 export class MoviePickerService {
+  moviesTotal = this.movieContentService.moviesTotal;
   moviesPicks: number[][] = [];
   moviesGuessed: number[] =[];
 
-  constructor() {}
+  constructor(private movieContentService: MovieContentService) {}
 
   /**
    * Method returns a random number in a given interval.
@@ -46,7 +48,7 @@ export class MoviePickerService {
     let max = 19;
 
     // Pick five times (five rows) ...
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < this.moviesTotal; i++) {
       this.moviesPicks[i] = [];
       // (increment the range of the set by 20 unless it's the first iteration)
       if (i !== 0) {
@@ -74,7 +76,7 @@ export class MoviePickerService {
    * @example   this.moviesGuessed = [12, 30, 48, 72, 92]
    */
   moviesToGuess(matrix: number[][]): void {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < this.moviesTotal; i++) {
       this.moviesGuessed[i] = matrix[i][this.randomNum(0, 2)];
     }
   }

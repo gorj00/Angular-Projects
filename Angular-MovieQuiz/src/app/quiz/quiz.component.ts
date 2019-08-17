@@ -14,29 +14,36 @@ import { IMoviesPage } from '../interfaces/movies-page.interface';
 })
 export class QuizComponent implements OnInit {
 
-  totalNumberOfMovies = 5;
-  moviesOrder: number[] = this.numToArray(this.totalNumberOfMovies);
-  moviePicks: number[][] = this.moviePickerService.moviesPicks;
-  moviesList: IMoviesPage['results'] = [];
+  moviesTotal: number = this.movieContentService
+                            .moviesTotal;
+  moviesOrder: number[] = this.numToArray(
+                            this.moviesTotal
+                          );
+  moviePicks: number[][] = this.moviePickerService
+                               .moviesPicks;
   loadingStatus = true;
   quizProgress = 0;
   quizCorrect = 0;
+  moviesList: IMoviesPage['results'] = [];
+
   titlesAndIds: {
     id: number, title: string
   }[][] = [];
+
   moviesToBeGuessed: {
     order: number, id: number
   }[] = [];
+
 
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) {}
 
   incrementQuizProgress() {
-    this.quizProgress += 20;
+    this.quizProgress += 100 / this.moviesTotal;
   }
 
   incrementQuizCorrect() {
-    this.quizCorrect += 20;
+    this.quizCorrect += 100 / this.moviesTotal;
   }
 
   numToArray(num: number): number[] {
@@ -45,7 +52,7 @@ export class QuizComponent implements OnInit {
 
   getMoviePositionInList(questionOrder: number,
                          movieOrder: number): number {
-    if ((questionOrder <= 4 && movieOrder <= 2) &&
+    if ((questionOrder < this.moviesTotal && movieOrder <= 2) &&
         (questionOrder >= 0 && movieOrder >= 0)) {
       return this.moviePickerService
                  .moviesPicks
@@ -72,7 +79,7 @@ export class QuizComponent implements OnInit {
   }
 
   setTitlesAndIds() {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < this.moviesTotal; i++) {
       this.titlesAndIds.push([]);
       for (let j = 0; j < 3; j++) {
         this.titlesAndIds[i].push({
@@ -89,7 +96,7 @@ export class QuizComponent implements OnInit {
   }
 
   setMoviesObjects() {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < this.moviesTotal; i++) {
       this.moviesToBeGuessed.push({
         order: this.moviesOrder[i],
 

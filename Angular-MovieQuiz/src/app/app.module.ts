@@ -11,6 +11,7 @@ import { StartComponent } from './quiz/start/start.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoadingComponent } from './effects/loading/loading.component';
 import { ProgressBottomComponent } from './effects/progress-bottom/progress-bottom.component';
+import { MovieContentService } from './services/movie-content.service';
 
 // Angular Material Imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [MovieContentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
