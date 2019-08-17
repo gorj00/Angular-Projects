@@ -9,7 +9,7 @@ import { IMovieClues } from '../interfaces/movie-clues.interface';
 
 @Injectable()
 export class MovieContentService {
-  moviesTotal = 7;
+  moviesTotal = 5;
   baseUrl = 'https://api.themoviedb.org/3/';
   apiKeyPrefix = '?api_key=';
   apiKey = 'a5357212f9c747dac679fc5ab1aa7ca9';
