@@ -24,10 +24,8 @@ export class QuizComponent implements OnInit {
   quizCorrect = 0;
   loadingStatus = true;
 
-  constructor(
-    private moviePickerService: MoviePickerService,
-    private movieContentService: MovieContentService
-  ) {}
+  constructor(private moviePickerService: MoviePickerService,
+              private movieContentService: MovieContentService) {}
 
   incrementQuizProgress() {
     this.quizProgress += 20;
