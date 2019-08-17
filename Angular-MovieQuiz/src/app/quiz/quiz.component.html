@@ -9,6 +9,7 @@
     </app-clues>
     <app-options
       [movieToGuessId]="movie.id"
+      [optionsTitlesAndIds]="titlesAndIds[i]"
       (progressIncrement)="incrementQuizProgress($event)"
       (correctIncrement)="incrementQuizCorrect($event)">
     </app-options>

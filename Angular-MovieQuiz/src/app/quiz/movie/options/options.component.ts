@@ -12,6 +12,10 @@ import {
   styleUrls: ['./options.component.css']
 })
 export class OptionsComponent implements OnInit {
+  @Input()  optionsTitlesAndIds: {
+              id: number,
+              title: string
+            }[];
   @Input()  movieToGuessId: number;
   @Output() progressIncrement = new EventEmitter<void>();
   @Output() correctIncrement  = new EventEmitter<void>();
