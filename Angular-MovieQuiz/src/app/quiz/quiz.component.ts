@@ -3,7 +3,7 @@ import { MoviePickerService } from 'src/app/services/movie-picker.service';
 import { MovieContentService } from 'src/app/services/movie-content.service';
 import { map } from 'rxjs/operators';
 
-// Interfaces import
+// Interface import
 import { IMoviesPage } from '../interfaces/movies-page.interface';
 
 @Component({
@@ -13,10 +13,10 @@ import { IMoviesPage } from '../interfaces/movies-page.interface';
   providers: [MoviePickerService, MovieContentService]
 })
 export class QuizComponent implements OnInit {
-  
+
   totalNumberOfMovies = 5;
   moviesOrder: number[] = this.numToArray(this.totalNumberOfMovies);
-  moviePicks = this.moviePickerService.moviesPicks;
+  moviePicks: number[][] = this.moviePickerService.moviesPicks;
   moviesList: IMoviesPage['results'] = [];
   loadingStatus = true;
   quizProgress = 0;
@@ -27,7 +27,6 @@ export class QuizComponent implements OnInit {
   moviesToBeGuessed: {
     order: number, id: number
   }[] = [];
-
 
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) {}
