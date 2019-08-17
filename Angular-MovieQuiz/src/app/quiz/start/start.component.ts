@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./start.component.css']
 })
 export class StartComponent implements OnInit {
-  siteTitle = 'Guess the Movie';
+  siteTitle    = 'Guess the Movie';
   siteSubtitle = 'QUIZZ';
 
   constructor() { }
