@@ -13,16 +13,21 @@ import { IMoviesPage } from '../interfaces/movies-page.interface';
   providers: [MoviePickerService, MovieContentService]
 })
 export class QuizComponent implements OnInit {
-
+  
   totalNumberOfMovies = 5;
   moviesOrder: number[] = this.numToArray(this.totalNumberOfMovies);
-  moviesList: any[] = [];
-  titlesAndIds: any[] = [];
-  moviesToBeGuessed: any[] = [];
   moviePicks = this.moviePickerService.moviesPicks;
+  moviesList: IMoviesPage['results'] = [];
+  loadingStatus = true;
   quizProgress = 0;
   quizCorrect = 0;
-  loadingStatus = true;
+  titlesAndIds: {
+    id: number, title: string
+  }[][] = [];
+  moviesToBeGuessed: {
+    order: number, id: number
+  }[] = [];
+
 
   constructor(private moviePickerService: MoviePickerService,
               private movieContentService: MovieContentService) {}
@@ -94,6 +99,7 @@ export class QuizComponent implements OnInit {
                .id
       }); // end object & push
     } // end for
+    console.log(this.moviesToBeGuessed);
   }
 
   quizLogic(cb) {
