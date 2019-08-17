@@ -12,10 +12,9 @@ import {
   styleUrls: ['./options.component.css']
 })
 export class OptionsComponent implements OnInit {
-  @Input()  optionsTitlesAndIds: {};
-  @Input()  movieToGuessId;
-  @Output() progressIncrement = new EventEmitter<any>();
-  @Output() correctIncrement  = new EventEmitter<any>();
+  @Input()  movieToGuessId: number;
+  @Output() progressIncrement = new EventEmitter<void>();
+  @Output() correctIncrement  = new EventEmitter<void>();
             optionsDisabled   = false;
 
   constructor() { }

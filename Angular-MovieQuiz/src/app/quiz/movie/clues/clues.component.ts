@@ -16,8 +16,13 @@ export class CluesComponent implements OnInit {
   @Input() movieOrder: number;
   @Input() movieID: number;
            cluesImgs: string[] = [];
-           moviesClues: any[] = [];
            moviesYears: number[] = [];
+           moviesClues: {
+             year: number[],
+             director: string[],
+             cast: string,
+             images: string[]
+           }[] = [];
 
   constructor(private movieContentService: MovieContentService) { }
 
@@ -67,10 +72,10 @@ export class CluesComponent implements OnInit {
       .pipe(
         map(
           (response: IMovieClues) => {
-            const year = this.moviesYears;
+            const year: number[] = this.moviesYears;
             const director: string[] = [];
             const cast: IMovieClues['cast'][] = [];
-            const images = this.cluesImgs;
+            const images: string[] = this.cluesImgs;
             let castString: string;
 
             this.setDirector(response, director);

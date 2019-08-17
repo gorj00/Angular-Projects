@@ -98,7 +98,6 @@ export class QuizComponent implements OnInit {
                .id
       }); // end object & push
     } // end for
-    console.log(this.moviesToBeGuessed);
   }
 
   quizLogic(cb) {

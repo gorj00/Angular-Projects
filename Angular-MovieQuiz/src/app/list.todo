@@ -10,3 +10,4 @@ Angular Movie Quiz TODO list:
  - results messages
  - input change into angular material or delete from module
  - stepper Angular Material for questions
+ - movieClues object arrays[0], types (property and inside fnctions), and theme
