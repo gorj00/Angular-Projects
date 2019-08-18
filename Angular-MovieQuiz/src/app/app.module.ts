@@ -21,8 +21,16 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MovieComponent } from './quiz/movie/movie.component';
 
 const appRoutes: Routes = [
-  { path: '', component: StartComponent },
-  { path: 'quiz', component: MovieComponent }
+  {
+    path: '',
+    component: StartComponent,
+    outlet: 'main'
+  },
+  {
+    path: 'quiz',
+    component: QuizComponent,
+    outlet: 'main'
+  }
 ];
 
 @NgModule({

@@ -30,6 +30,11 @@ export class OptionsComponent implements OnInit {
            chosen: HTMLLabelElement) {
     this.progressIncrement.emit();
     this.optionsDisabled = true;
+    // this.router.navigate(['/quiz'], {
+    //   queryParams: {
+    //     question: 2
+    //   }
+    // });
     if (this.movieToGuessId === +option.id) {
       this.correctIncrement.emit();
       chosen.className = 'correct-answer';
