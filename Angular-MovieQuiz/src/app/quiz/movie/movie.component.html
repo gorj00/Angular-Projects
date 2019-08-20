@@ -1,4 +1,5 @@
-<div *ngFor="let movie of moviesToBeGuessed; index as i">
+<div
+  *ngFor="let movie of moviesToBeGuessed; index as i">
   <section
     *ngIf="'/quiz?question=' + movie.order === currentRoute">
     <form [@bounceIn]="bounceIn">

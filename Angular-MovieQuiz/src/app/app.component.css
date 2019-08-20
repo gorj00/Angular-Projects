@@ -33,11 +33,6 @@ body {
   position: relative;
 }
 
-form {
-  border-bottom: 1px dashed #bdecea;
-  padding-bottom: 50px;
-}
-
 form.border-first-movie,
 form.border-last-movie {
   border-bottom: 0;
@@ -220,3 +215,5 @@ a.quiz-link:hover {
 .mat-spinner circle {
   stroke: #00a383;
 }
+
+
