@@ -20,8 +20,10 @@ export class OptionsComponent implements OnInit {
               title: string
             }[];
   @Input()  movieToGuessId: number;
+  @Input()  movieOrder;
   @Output() progressIncrement = new EventEmitter<void>();
   @Output() correctIncrement  = new EventEmitter<void>();
+  // @Output() routeChange       = new EventEmitter<void>();
             optionsDisabled   = false;
 
   constructor(private router: Router) { }
@@ -29,12 +31,13 @@ export class OptionsComponent implements OnInit {
   onChoose(option: HTMLInputElement,
            chosen: HTMLLabelElement) {
     this.progressIncrement.emit();
+    // this.routeChange.emit();
     this.optionsDisabled = true;
-    // this.router.navigate(['/quiz'], {
-    //   queryParams: {
-    //     question: 2
-    //   }
-    // });
+    this.router.navigate(['/quiz'], {
+      queryParams: {
+        question: this.movieOrder + 1
+      }
+    });
     if (this.movieToGuessId === +option.id) {
       this.correctIncrement.emit();
       chosen.className = 'correct-answer';

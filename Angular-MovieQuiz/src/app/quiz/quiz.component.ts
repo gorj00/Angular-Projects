@@ -20,5 +20,6 @@ export class QuizComponent implements OnInit {
     this.quizProgress += 100 / this.moviesTotal;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 }

@@ -1,16 +1,18 @@
-<section
-*ngFor="let movie of moviesToBeGuessed; index as i">
-  <form>
-    <app-clues
-      [movieOrder]="movie.order"
-      [movieID]="movie.id"
-      [moviesTotal]="moviesTotal">
-    </app-clues>
-    <app-options
-      [movieToGuessId]="movie.id"
-      [optionsTitlesAndIds]="titlesAndIds[i]"
-      (progressIncrement)="incrementQuizProgress($event)"
-      (correctIncrement)="incrementQuizCorrect($event)">
-    </app-options>
-  </form>
-</section>
+<div *ngFor="let movie of moviesToBeGuessed; index as i">
+  <section *ngIf="'/quiz?question=' + movie.order === currentRoute">
+    <form>
+      <app-clues
+        [movieOrder]="movie.order"
+        [movieID]="movie.id"
+        [moviesTotal]="moviesTotal">
+      </app-clues>
+      <app-options
+        [movieToGuessId]="movie.id"
+        [optionsTitlesAndIds]="titlesAndIds[i]"
+        [movieOrder]="movie.order"
+        (progressIncrement)="incrementQuizProgress($event)"
+        (correctIncrement)="incrementQuizCorrect($event)">
+      </app-options>
+    </form>
+  </section>
+</div>

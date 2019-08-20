@@ -5,6 +5,7 @@
     This is my first Angular app, I made it to practice some of Angular features (reactive programming - RxJS, Http Client, dependency injections, routing, Angular Material, and working with Movie DB REST API).
   </p>
   <a [routerLink]="['/quiz']"
+     [queryParams]="{ question: 1 }"
      class="quiz-link">
       START QUIZ
   </a>

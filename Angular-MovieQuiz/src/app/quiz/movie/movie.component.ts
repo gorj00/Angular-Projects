@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviePickerService } from 'src/app/services/movie-picker.service';
 import { MovieContentService } from 'src/app/services/movie-content.service';
+import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 // Interface import
@@ -21,7 +22,9 @@ export class MovieComponent implements OnInit {
                           );
   moviePicks: number[][] = this.moviePickerService
                                .moviesPicks;
+  questionRendered: boolean;
   loadingStatus = true;
+  currentRoute: string = this.router.url;
   quizProgress = 0;
   quizCorrect = 0;
   moviesList: IMoviesPage['results'] = [];
@@ -36,7 +39,8 @@ export class MovieComponent implements OnInit {
 
 
   constructor(private moviePickerService: MoviePickerService,
-              private movieContentService: MovieContentService) {}
+              private movieContentService: MovieContentService,
+              private router: Router) {}
 
   incrementQuizProgress() {
     this.quizProgress += 100 / this.moviesTotal;
@@ -136,9 +140,14 @@ export class MovieComponent implements OnInit {
 
       // Test if needed
       // console.log(this.moviesList);
-      // console.log(this.moviePickerService.moviesPicks);
+      console.log(this.moviePickerService.moviesPicks);
       // console.log(this.moviePickerService.moviesGuessed);
       // console.log(this.moviesToBeGuessed);
+      console.log(this.router.url);
+      this.router.events
+      .subscribe(val => {
+        this.currentRoute = this.router.url;
+      });
     });
   }
 
