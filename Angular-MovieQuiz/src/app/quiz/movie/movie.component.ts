@@ -1,18 +1,21 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import { MoviePickerService } from 'src/app/services/movie-picker.service';
 import { MovieContentService } from 'src/app/services/movie-content.service';
-import { Router, Event as NavigationEvent, NavigationEnd } from '@angular/router';
+import { Router, Event as NavigationEvent } from '@angular/router';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { bounceIn } from 'ng-animate';
 import { map } from 'rxjs/operators';
 
 // Interface import
 import { IMoviesPage } from '../../interfaces/movies-page.interface';
-import { Observable } from 'rxjs';
-import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css'],
+  animations: [
+    trigger('bounceIn', [transition('* => *', useAnimation(bounceIn))])
+  ],
   providers: [MoviePickerService, MovieContentService]
 })
 export class MovieComponent implements OnInit, OnDestroy {
@@ -29,6 +32,7 @@ export class MovieComponent implements OnInit, OnDestroy {
   currentRoute: string = this.router.url;
   quizProgress = 0;
   quizCorrect = 0;
+  bounceIn: any;
   moviesList: IMoviesPage['results'] = [];
 
   titlesAndIds: {
