@@ -12,5 +12,6 @@ Angular Movie Quiz TODO list:
  - stepper Angular Material for questions
  - movieClues object arrays[0], types (property and inside fnctions), and theme
  - return loading
- - router question 6
+ - router question 6 @done
  - not load new movies when back in broser from another component
+ - query params in option better solution @done

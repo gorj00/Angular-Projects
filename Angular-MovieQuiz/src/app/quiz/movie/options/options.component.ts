@@ -6,7 +6,8 @@ import {
   EventEmitter
 } from '@angular/core';
 
-import { Router} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { MovieContentService } from '../../../services/movie-content.service';
 
 @Component({
   selector: 'app-options',
@@ -20,12 +21,20 @@ export class OptionsComponent implements OnInit {
               title: string
             }[];
   @Input()  movieToGuessId: number;
-  @Input()  movieOrder;
+  @Input()  movieOrder: number;
   @Output() progressIncrement = new EventEmitter<void>();
   @Output() correctIncrement  = new EventEmitter<void>();
-            optionsDisabled   = false;
+            optionsDisabled = false;
+            moviesTotal: number = this.movieContentService
+                                      .moviesTotal;
+            questionParam: string = this.activatedRoute
+                                 .snapshot
+                                 .queryParamMap
+                                 .get('question');
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private movieContentService: MovieContentService) { }
 
   onChoose(option: HTMLInputElement,
            chosen: HTMLLabelElement) {
@@ -41,7 +50,7 @@ export class OptionsComponent implements OnInit {
   }
 
   handleRoute() {
-    if (this.router.url !== '/quiz?question=5') {
+    if (+this.questionParam < this.moviesTotal) {
       this.router.navigate(['/quiz'], {
         queryParams: {
           question: this.movieOrder + 1
