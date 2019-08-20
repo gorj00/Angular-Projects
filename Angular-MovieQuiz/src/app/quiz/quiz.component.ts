@@ -10,14 +10,14 @@ import { MovieContentService } from 'src/app/services/movie-content.service';
 export class QuizComponent implements OnInit {
 
   loadingStatus = true;
-  quizProgress = 0;
+  progressValue: number;
   moviesTotal: number = this.movieContentService
                             .moviesTotal;
 
   constructor(private movieContentService: MovieContentService) {}
 
-  incrementQuizProgress() {
-    this.quizProgress += 100 / this.moviesTotal;
+  progressIncrease(progress: number) {
+    this.progressValue = progress;
   }
 
   ngOnInit() {

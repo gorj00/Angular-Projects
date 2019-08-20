@@ -1,4 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { MoviePickerService } from 'src/app/services/movie-picker.service';
 import { MovieContentService } from 'src/app/services/movie-content.service';
 import { Router, Event as NavigationEvent } from '@angular/router';
@@ -35,6 +41,10 @@ export class MovieComponent implements OnInit, OnDestroy {
   bounceIn: any;
   moviesList: IMoviesPage['results'] = [];
 
+  @Output()
+  progressBarValue:
+  EventEmitter<number> = new EventEmitter<number>();
+
   titlesAndIds: {
     id: number, title: string
   }[][] = [];
@@ -49,6 +59,7 @@ export class MovieComponent implements OnInit, OnDestroy {
 
   incrementQuizProgress() {
     this.quizProgress += 100 / this.moviesTotal;
+    this.progressBarValue.emit(this.quizProgress);
   }
 
   incrementQuizCorrect() {

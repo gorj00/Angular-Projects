@@ -17,3 +17,4 @@ Angular Movie Quiz TODO list:
    -- choices remembered
  - query params in option better solution @done
  - next question button
+ - /quiz?question= make dynamic in .html

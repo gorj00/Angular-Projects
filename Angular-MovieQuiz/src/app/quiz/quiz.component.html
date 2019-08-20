@@ -1,4 +1,6 @@
-<app-movie></app-movie>
+<app-movie
+  (progressBarValue)="progressIncrease($event)">
+</app-movie>
 <app-progress-bottom
-  [progressValue]="quizProgress">
+  [progressValue]="progressValue">
 </app-progress-bottom>
