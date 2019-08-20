@@ -23,7 +23,6 @@ export class OptionsComponent implements OnInit {
   @Input()  movieOrder;
   @Output() progressIncrement = new EventEmitter<void>();
   @Output() correctIncrement  = new EventEmitter<void>();
-  // @Output() routeChange       = new EventEmitter<void>();
             optionsDisabled   = false;
 
   constructor(private router: Router) { }
@@ -31,18 +30,25 @@ export class OptionsComponent implements OnInit {
   onChoose(option: HTMLInputElement,
            chosen: HTMLLabelElement) {
     this.progressIncrement.emit();
-    // this.routeChange.emit();
     this.optionsDisabled = true;
-    this.router.navigate(['/quiz'], {
-      queryParams: {
-        question: this.movieOrder + 1
-      }
-    });
+    this.handleRoute();
     if (this.movieToGuessId === +option.id) {
       this.correctIncrement.emit();
       chosen.className = 'correct-answer';
     } else {
       chosen.className = 'incorrect-answer';
+    }
+  }
+
+  handleRoute() {
+    if (this.router.url !== '/quiz?question=5') {
+      this.router.navigate(['/quiz'], {
+        queryParams: {
+          question: this.movieOrder + 1
+        }
+      });
+    } else {
+      this.router.navigate(['/results']);
     }
   }
 

@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { MoviePickerService } from 'src/app/services/movie-picker.service';
 import { MovieContentService } from 'src/app/services/movie-content.service';
-import { Router } from '@angular/router';
+import { Router, Event as NavigationEvent, NavigationEnd } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 // Interface import
 import { IMoviesPage } from '../../interfaces/movies-page.interface';
+import { Observable } from 'rxjs';
+import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-movie',
@@ -13,7 +15,7 @@ import { IMoviesPage } from '../../interfaces/movies-page.interface';
   styleUrls: ['./movie.component.css'],
   providers: [MoviePickerService, MovieContentService]
 })
-export class MovieComponent implements OnInit {
+export class MovieComponent implements OnInit, OnDestroy {
 
   moviesTotal: number = this.movieContentService
                             .moviesTotal;
@@ -48,6 +50,16 @@ export class MovieComponent implements OnInit {
 
   incrementQuizCorrect() {
     this.quizCorrect += 100 / this.moviesTotal;
+  }
+
+  onChooseChangeRouter() {
+    return this.router.events
+      .subscribe(
+        (event: NavigationEvent) => {
+          this.currentRoute = this.router.url;
+        },
+        error => console.log(error)
+      );
   }
 
   numToArray(num: number): number[] {
@@ -138,21 +150,25 @@ export class MovieComponent implements OnInit {
       // Set and store the guessed movies IDs
       this.setMoviesObjects();
 
+      // Handling changing of the router and loading another question
+      this.onChooseChangeRouter();
+
       // Test if needed
       // console.log(this.moviesList);
       console.log(this.moviePickerService.moviesPicks);
       // console.log(this.moviePickerService.moviesGuessed);
       // console.log(this.moviesToBeGuessed);
-      console.log(this.router.url);
-      this.router.events
-      .subscribe(val => {
-        this.currentRoute = this.router.url;
-      });
+
     });
   }
 
   ngOnInit() {
     // Cerate a quiz on a page load
     this.createQuiz();
+  }
+
+  ngOnDestroy() {
+    this.onChooseChangeRouter()
+        .unsubscribe();
   }
 }
