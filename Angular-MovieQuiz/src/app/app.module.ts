@@ -8,10 +8,15 @@ import { ResultsComponent } from './quiz/results/results.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StartComponent } from './quiz/start/start.component';
-import { RouterModule, Routes } from '@angular/router';
+import {
+  RouterModule,
+  Routes,
+  RouteReuseStrategy
+} from '@angular/router';
 import { LoadingComponent } from './effects/loading/loading.component';
 import { ProgressBottomComponent } from './effects/progress-bottom/progress-bottom.component';
 import { MovieContentService } from './services/movie-content.service';
+import { CustomReuseStrategy } from './services/custom-reuse-strategy.service';
 
 // Angular Material Imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,7 +27,11 @@ import { MovieComponent } from './quiz/movie/movie.component';
 
 const appRoutes: Routes = [
   { path: '',        component: StartComponent },
-  { path: 'quiz',    component: QuizComponent},
+  {
+    path: 'quiz',
+    component: QuizComponent,
+    data: { shouldDetach: true}
+  },
   { path: 'results', component: ResultsComponent }
 ];
 
@@ -49,7 +58,13 @@ const appRoutes: Routes = [
     MatStepperModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [MovieContentService],
+  providers: [
+    MovieContentService,
+    {
+      provide: RouteReuseStrategy,
+      useClass: CustomReuseStrategy
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
