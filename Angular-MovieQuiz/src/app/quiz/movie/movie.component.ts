@@ -5,6 +5,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
+
 import { MoviePickerService } from 'src/app/services/movie-picker.service';
 import { MovieContentService } from 'src/app/services/movie-content.service';
 import { Router, Event as NavigationEvent } from '@angular/router';
@@ -172,7 +173,6 @@ export class MovieComponent implements OnInit, OnDestroy {
       // console.log(this.moviePickerService.moviesPicks);
       // console.log(this.moviePickerService.moviesGuessed);
       // console.log(this.moviesToBeGuessed);
-
     });
   }
 

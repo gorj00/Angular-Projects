@@ -24,7 +24,7 @@ export class OptionsComponent implements OnInit {
   @Input()  movieOrder: number;
   @Output() progressIncrement = new EventEmitter<void>();
   @Output() correctIncrement  = new EventEmitter<void>();
-            optionsDisabled = false;
+            optionsDisabled: boolean;
             moviesTotal: number = this.movieContentService
                                       .moviesTotal;
             questionParam: string = this.activatedRoute
@@ -37,16 +37,17 @@ export class OptionsComponent implements OnInit {
               private movieContentService: MovieContentService) { }
 
   onChoose(option: HTMLInputElement,
-           chosen: HTMLLabelElement) {
+           chosen: HTMLLabelElement,
+           order: number) {
     this.progressIncrement.emit();
     this.optionsDisabled = true;
-    this.handleRoute();
     if (this.movieToGuessId === +option.id) {
       this.correctIncrement.emit();
       chosen.className = 'correct-answer';
     } else {
       chosen.className = 'incorrect-answer';
     }
+    this.handleRoute();
   }
 
   handleRoute() {
@@ -56,8 +57,10 @@ export class OptionsComponent implements OnInit {
           question: this.movieOrder + 1
         }
       });
+      console.log(this.optionsDisabled);
     } else {
       this.router.navigate(['/results']);
+      console.log(this.optionsDisabled);
     }
   }
 

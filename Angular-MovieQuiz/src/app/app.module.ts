@@ -28,7 +28,7 @@ import { MovieComponent } from './quiz/movie/movie.component';
 const appRoutes: Routes = [
   { path: '',        component: StartComponent },
   {
-    path: 'quiz',
+    path: 'quiz//question/:order',
     component: QuizComponent,
     data: { shouldDetach: true}
   },
