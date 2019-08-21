@@ -24,7 +24,7 @@ export class OptionsComponent implements OnInit {
   @Input()  movieOrder: number;
   @Output() progressIncrement = new EventEmitter<void>();
   @Output() correctIncrement  = new EventEmitter<void>();
-            optionsDisabled: boolean;
+            optionsDisabled = false;
             moviesTotal: number = this.movieContentService
                                       .moviesTotal;
             questionParam: string = this.activatedRoute
