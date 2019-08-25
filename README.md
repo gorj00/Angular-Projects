@@ -13,6 +13,6 @@ app,
   - Components parent/child communication (Input, Output)
   - Angular Material
 - **working on next version:**
-  - stepper in between question with a unique router (/quiz?question=1),
-  - caching user's quiz choice when browsing back in the browser
+  - stepper in between questions with a unique router (/quiz?question=1),
+  - caching user's quiz choices when browsing back in the browser
 
