@@ -12,7 +12,8 @@ question - one movie to guess and two others as incorrect options) out of 100
 most recent movies from external REST API from Movie DB,
   - after guesser makes his guess, options are disabled and coloring of the 
 chosen options follows - red (incorrect guess) or green (correct guess),
-  - app tracks progress at the bottom
+  - app tracks progress at the bottom,
+  - only desktop friendly so far
 - **keywords:** 
   - external API ([The Movie DB](https://www.themoviedb.org/))
   - HttpClient
@@ -27,3 +28,4 @@ chosen options follows - red (incorrect guess) or green (correct guess),
   - progress bar made visible throughout entire quiz
   - main css (whole app) file spread into components css
   - animations added
+  - css responsive (mobile friendly)
