@@ -21,6 +21,7 @@ export class QuizComponent implements OnInit {
                           );
   moviePicks: number[][] = this.moviePickerService
                                .moviesPicks;
+  resultsLinkVisibleStyle = 'none';
   loadingStatus = true;
   quizProgress = 0;
   quizCorrect = 0;
@@ -40,6 +41,9 @@ export class QuizComponent implements OnInit {
 
   incrementQuizProgress() {
     this.quizProgress += 100 / this.moviesTotal;
+    if (this.quizProgress === 100) {
+      this.resultsLinkVisibleStyle = 'inline-block';
+    }
   }
 
   incrementQuizCorrect() {
@@ -140,6 +144,8 @@ export class QuizComponent implements OnInit {
       // console.log(this.moviePickerService.moviesGuessed);
       // console.log(this.moviesToBeGuessed);
     });
+
+
   }
 
   ngOnInit() {

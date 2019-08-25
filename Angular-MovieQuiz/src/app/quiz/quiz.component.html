@@ -16,6 +16,11 @@
     </app-options>
   </form>
 </section>
+<a [routerLink]="['/results']"
+   [ngStyle]="{display: resultsLinkVisibleStyle}"
+   class="results-link">
+    Results
+</a>
 <app-progress-bottom
   [progressValue]="quizProgress">
 </app-progress-bottom>

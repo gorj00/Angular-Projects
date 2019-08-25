@@ -20,7 +20,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const appRoutes: Routes = [
   { path: '', component: StartComponent },
-  { path: 'quiz', component: QuizComponent}
+  { path: 'quiz', component: QuizComponent},
+  { path: 'results', component: ResultsComponent}
 ];
 
 @NgModule({
