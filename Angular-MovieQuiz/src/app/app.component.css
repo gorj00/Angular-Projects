@@ -218,7 +218,8 @@ a.quiz-link:hover {
   text-decoration: none;
 }
 
-a.results-link {
+a.results-link,
+a.another-quiz {
   font-family: Arial;
   color: #ffffff;
   font-size: 15px;
@@ -231,9 +232,28 @@ a.results-link {
   margin: 0 0 20px 0;
 }
 
-a.results-link:hover {
+a.results-link:hover,
+a.another-quiz:hover {
   background: #15c4a1;
   text-decoration: none;
+}
+
+section.results h1 {
+  margin: 0;
+}
+
+section.results h2 {
+  font-size: 23px;
+  margin: 25px 0 0 0;
+}
+
+section.results img {
+  max-width: 600px;
+}
+
+section.results p {
+  width: 75%;
+  margin: 0 auto 20px auto;
 }
 
 .mat-progress-spinner circle,

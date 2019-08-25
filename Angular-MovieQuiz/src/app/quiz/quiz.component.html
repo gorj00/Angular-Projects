@@ -17,6 +17,7 @@
   </form>
 </section>
 <a [routerLink]="['/results']"
+   [queryParams]="{correct: quizCorrect}"
    [ngStyle]="{display: resultsLinkVisibleStyle}"
    class="results-link">
     Results

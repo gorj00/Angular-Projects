@@ -1,1 +1,74 @@
-<h1>Results</h1>
+<section class="results">
+  <h1>Success Rate: {{ success }} %</h1>
+  <span>{{ correctMovies }}/5 correct guesses</span>
+  <hr>
+  <div [ngSwitch]="success">
+    <div *ngSwitchCase="0">
+      <span>
+        <h2>Movie Buff Level:</h2> Have you seen a movie lately?
+      </span>
+      <img src="http://www.liberaldictionary.com/wp-content/uploads/2019/02/failed-7227.jpg">
+      <p>
+        Maybe it's just not your day, buddy... Grab a friend or your partner and go hit the
+        movies to culture yourselves a bit!
+      </p>
+    </div>
+    <div *ngSwitchCase="20">
+      <span>
+        <h2>Movie Buff Level:</h2> You've seen a movie or two... but that's it!
+      </span>
+      <img src="https://static.makeuseof.com/wp-content/uploads/2016/05/movie-theaters-awesome-670x335.jpg">
+      <p>
+        Current movies is not your thing... We hope you have other hobbies.
+        We also appreciate you taking the time and doing our quiz! Maybe go visit a movie theater
+        once in a while and take our quiz to see whether you are getting better.
+      </p>
+    </div>
+    <div *ngSwitchCase="40">
+      <span>
+        <h2>Movie Buff Level:</h2> Not really a movie person
+      </span>
+      <img
+        src="https://image1.masterfile.com/getImage/NjMwLTA2NzI0NTE4ZW4uMDAwMDAwMDA=AMhV5o/630-06724518en_Masterfile.jpg">
+      <p>
+        The only time you find yourself at the movies is when your friends drag you there...
+        You go here and there, but only to see the big stuff everyone talks about so you are
+        not out of the loop.
+      </p>
+    </div>
+    <div *ngSwitchCase="60">
+      <span>
+        <h2>Movie Buff Level:</h2> Occasional Movie Goer
+      </span>
+      <img src="https://www.thewrap.com/wp-content/uploads/2018/07/movie.jpg">
+      <p>
+        You like movies and you enjoy going to see them. You have a favourite movie theater
+        and maybe even a favourite spot there.
+      </p>
+    </div>
+    <div *ngSwitchCase="80">
+      <span>
+        <h2>Movie Buff Level:</h2> Movie Goer
+      </span>
+      <img src="https://cdn.inquisitr.com/wp-content/uploads/2017/10/colorado-movie-theater-teens-heather-piper.jpg">
+      <p>
+        You go to the movies a lot and you remember many facts about them and maybe even
+        bother your friends with them. Maybe you can start a blog to share your thoughts
+        on the current movies?
+      </p>
+    </div>
+    <div *ngSwitchCase="100">
+      <span>
+        <h2>Movie Buff Level:</h2> Super Movie Fan
+      </span>
+      <img src="https://www.verdict.co.uk/wp-content/uploads/2018/08/shutterstock_179549132.jpg">
+      <p>
+        Your parents and friends only vaguely remember what you like because you practically live
+        in a movie theater. Everybody working there knows your name and you ask them how their children are...
+        If you love movies so much, why don't you become a movie critic and start a blog or a youtube channel
+        to share your thoughts with other movie buffs?
+      </p>
+    </div>
+  </div>
+  <a [routerLink]="'/quiz'" class="another-quiz">Generate Another Quiz</a>
+</section>
