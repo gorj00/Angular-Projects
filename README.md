@@ -1,5 +1,7 @@
 # Angular Projects
-## [#1 Movie Quiz (ENG) [80 % finished]](./Angular-MovieQuiz) 
+## [#1 Movie Quiz (ENG)](./Angular-MovieQuiz) 
+**[[LIVE DEMO](http://tviix.com/angular/movie-quiz/quiz)]** | 
+** [[ANGULAR CODE ](./Angular-MovieQuiz)]
 - conversion of plain [JS app (Movie Quiz)](../../../JavaScript-Projects) to 
 Angular,
 - I want this app to be more component based architecture for the purpose of 
@@ -15,4 +17,6 @@ app,
 - **working on next version:**
   - stepper in between questions with a unique router (/quiz?question=1),
   - caching user's quiz choices when browsing back in the browser
+  - progress bar made visible throughout entire quiz
+  - main css (whole app) file spread into components css
 
