@@ -1,6 +1,6 @@
 # Angular Projects
 ## [#1 Movie Quiz (ENG)](./Angular-MovieQuiz) 
-**[[LIVE DEMO](http://tviix.com/angular/movie-quiz/quiz)]**   |   **[[ANGULAR CODE ](./Angular-MovieQuiz)]**
+**[[LIVE DEMO](http://tviix.com/angular/movie-quiz/)]**   |   **[[ANGULAR CODE ](./Angular-MovieQuiz)]**
 - conversion of plain [JS app (Movie Quiz)](../../../JavaScript-Projects) to 
 Angular,
 - I want this app to be more component based architecture for the purpose of 
