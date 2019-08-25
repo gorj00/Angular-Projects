@@ -18,4 +18,5 @@ app,
   - caching user's quiz choices when browsing back in the browser
   - progress bar made visible throughout entire quiz
   - main css (whole app) file spread into components css
+  - animations added
 
