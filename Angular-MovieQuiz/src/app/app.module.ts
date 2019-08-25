@@ -28,9 +28,10 @@ import { MovieComponent } from './quiz/movie/movie.component';
 const appRoutes: Routes = [
   { path: '',        component: StartComponent },
   {
-    path: 'quiz//question/:order',
+    // store in ngIf in movie.component
+    path: 'quiz',
     component: QuizComponent,
-    data: { shouldDetach: true}
+    data: { shouldAttachCC: true }
   },
   { path: 'results', component: ResultsComponent }
 ];

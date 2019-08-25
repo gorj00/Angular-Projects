@@ -6,8 +6,9 @@ import {
   EventEmitter
 } from '@angular/core';
 
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { MovieContentService } from '../../../services/movie-content.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-options',
@@ -25,20 +26,17 @@ export class OptionsComponent implements OnInit {
   @Output() progressIncrement = new EventEmitter<void>();
   @Output() correctIncrement  = new EventEmitter<void>();
             optionsDisabled = false;
+            // questionOrder: string;
+            questionOrder: string = this.activatedRoute.snapshot.queryParamMap.get('question');
             moviesTotal: number = this.movieContentService
                                       .moviesTotal;
-            questionParam: string = this.activatedRoute
-                                 .snapshot
-                                 .queryParamMap
-                                 .get('question');
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private movieContentService: MovieContentService) { }
 
   onChoose(option: HTMLInputElement,
-           chosen: HTMLLabelElement,
-           order: number) {
+           chosen: HTMLLabelElement) {
     this.progressIncrement.emit();
     this.optionsDisabled = true;
     if (this.movieToGuessId === +option.id) {
@@ -51,10 +49,16 @@ export class OptionsComponent implements OnInit {
   }
 
   handleRoute() {
-    if (+this.questionParam < this.moviesTotal) {
+    if (+this.questionOrder < this.moviesTotal) {
+      const nextQuestionOrder: number = this.movieOrder + 1;
+      // this.router.navigate([
+      //   '/quiz',
+      //   'question',
+      //   nextQuestionOrder
+      // ]);
       this.router.navigate(['/quiz'], {
         queryParams: {
-          question: this.movieOrder + 1
+          question: nextQuestionOrder
         }
       });
       console.log(this.optionsDisabled);
@@ -65,6 +69,15 @@ export class OptionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.activatedRoute.params
+    //  .subscribe(
+    //      (params: Params) => {
+    //         //  this.questionOrder = params.order;
+    //         this.questionOrder = params['question'];
+
+    //      }
+    //  );
+    console.log('Init: ', this.optionsDisabled);
   }
 
 }
