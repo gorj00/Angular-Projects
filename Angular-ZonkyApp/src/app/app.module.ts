@@ -19,6 +19,7 @@ import { HomeComponent } from './content/home/home.component';
 import { StoriesComponent } from './content/stories/stories.component';
 import { AverageLoanComponent } from './content/average-loan/average-loan.component';
 import { AppMethodologyComponent } from './content/app-methodology/app-methodology.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,6 +50,7 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
