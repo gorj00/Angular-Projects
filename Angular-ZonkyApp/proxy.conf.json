@@ -1,0 +1,7 @@
+{
+  "https://api.zonky.cz/*": {
+     "target": "http://localhost:6000",
+     "secure": false,
+     "logLevel": "debug"
+  }
+}

@@ -7,6 +7,6 @@ export class DataXHRService {
   constructor(private http: HttpClient) {}
 
   getLoans() {
-    return this.http.get('https://crossorigin.me/https://private-anon-3f152b1f8e-zonky.apiary-proxy.com/loans/marketplace');
+    return this.http.get('loans/marketplace');
   }
 }
