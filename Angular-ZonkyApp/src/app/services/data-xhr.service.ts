@@ -10,7 +10,7 @@ export class DataXHRService {
 
   getLoans() {
     return this.http.get(
-      'https://private-anon-2aa5be6b64-zonky.apiary-proxy.com/loans/marketplace',
+      'https://api.zonky.cz/loans/marketplace',
       { observe: 'response' }
     );
   }
