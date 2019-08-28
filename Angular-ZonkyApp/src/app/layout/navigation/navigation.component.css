@@ -2,6 +2,10 @@ i {
   transform: translate(-7px, 5px);
 }
 
+.navbar {
+  background: #37b4be;
+}
+
 .nav-link {
   padding-left: 40px !important;
 }

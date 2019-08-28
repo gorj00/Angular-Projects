@@ -8,12 +8,17 @@ import { DataXHRService } from '../../services/data-xhr.service';
   providers: [DataXHRService]
 })
 export class AverageLoanComponent implements OnInit {
+  loansTotal: number;
 
   constructor(private dataXHRService: DataXHRService) { }
 
   ngOnInit() {
     this.dataXHRService.getLoans().subscribe(
-      response => console.log(response),
+      response => {
+        this.loansTotal = +response.headers.get('X-Total');
+        console.log(this.loansTotal);
+        console.log(response);
+      },
       error => console.log(error),
       () => console.log('Completed!')
     );
