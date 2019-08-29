@@ -8,7 +8,7 @@ import { DataXHRService } from '../../services/data-xhr.service';
   providers: [DataXHRService]
 })
 export class AverageLoanComponent implements OnInit {
-  loansTotal: number;
+  loansTotal: number[] = this.dataXHRService.loansTotalCount;
 
   constructor(private dataXHRService: DataXHRService) {}
 
