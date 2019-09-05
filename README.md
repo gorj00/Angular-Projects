@@ -15,7 +15,7 @@ app
   - Components parent/child communication (Input, Output)
   - Angular Material
 
-## [#2 USD Converter (ENG and CZE)] 
+## #2 USD Converter (ENG and CZE) 
 **[[ LIVE DEMO ](http://tviix.com/angular/usd-converter/)]**
 - repository with Angular code is not public
 
