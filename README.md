@@ -1,5 +1,5 @@
 # Angular Projects
-## [Movie Quiz (ENG)](./Angular-MovieQuiz) 
+## [# Movie Quiz (ENG)](./Angular-MovieQuiz) 
 **[[ LIVE DEMO ](http://tviix.com/angular/movie-quiz/)]**   |   **[[ ANGULAR CODE ](./Angular-MovieQuiz)]**
 - conversion of plain [JS app (Movie Quiz)](../../../JavaScript-Projects) to 
 Angular,
@@ -30,7 +30,7 @@ chosen options follows - red (incorrect guess) or green (correct guess),
   - animations added
   - css responsive (mobile friendly)
 
-## [USD Converter (ENG and CZE)] 
+## [# USD Converter (ENG and CZE)] 
 **[[ LIVE DEMO ](http://tviix.com/angular/usd-converter/)]**
 - repository with Angular code is not public
 
