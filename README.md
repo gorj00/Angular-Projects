@@ -1,6 +1,6 @@
 # Angular Projects
 ## [#1 Movie Quiz (ENG)](./Angular-MovieQuiz) 
-**[[ LIVE DEMO ](http://tviix.com/angular/movie-quiz/)]**   ·   **[[ ANGULAR CODE ](./Angular-MovieQuiz)]**
+**[[ LIVE DEMO ](http://jgor.eu/angular/movie-quiz/)]**   ·   **[[ ANGULAR CODE ](./Angular-MovieQuiz)]**
 - conversion of plain [JS app (Movie Quiz)](../../../JavaScript-Projects) to 
 Angular,
 - I want this app to be more component based architecture for the purpose of 
@@ -16,7 +16,7 @@ app
   - Angular Material
 
 ## #2 USD Converter (ENG and CZE) 
-**[[ LIVE DEMO ](http://tviix.com/angular/usd-converter/)]**
+**[[ LIVE DEMO ](http://jgor.eu/angular/usd-converter/)]**
 - repository with Angular code is not public
 
 - **keywords:** 
