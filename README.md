@@ -16,8 +16,7 @@ app
   - Angular Material
 
 ## #2 USD Converter (ENG and CZE) 
-**[[ LIVE DEMO ](http://jgor.eu/angular/usd-converter/)]**
-- repository with Angular code is not public
+**[[ LIVE DEMO ](http://jgor.eu/angular/usd-converter/)]**   ·   **[[ ANGULAR CODE ](../Angular-USDconverter)]**
 
 - **keywords:** 
   - Dependency injection
