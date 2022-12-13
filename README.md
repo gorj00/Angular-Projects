@@ -11,7 +11,7 @@
     - entity blogPost demonstrated with @ngrx/data
     - entity tag demonstrated with @ngrx/store
   
-  - **temporary issues:** 
+- **temporary issues:** 
    - <small><span style="color: red;">as of now, relies on external API that does not allow blogPosts updates in edit mode; therefore, will be replaced with .NET Core backend in the near future</span></small>
    - <small><span style="color: red;">the external API does not allow filtering blogs by tags</span></small>
    - <small><span style="color: red;">due to the above, the site may not temporarily work while using the external API solution</span></small>
