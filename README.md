@@ -7,7 +7,7 @@
   - <strong>Approach</strong>: declarative (reactive RxJS)
   - <strong>Forms</strong>: reactive
   - <strong>Architecture</strong>: lazy loading, containers and presentational components, redux pattern
-  - <strong>Redux libs</strong>°°: @ngrx/store, @ngrx/data, @ngrx/router, @ngrx/entity
+  - <strong>Redux libs</strong>: @ngrx/store, @ngrx/data, @ngrx/router, @ngrx/entity
     - entity blogPost demonstrated with @ngrx/data
     - entity tag demonstrated with @ngrx/store
   - <small><span style="color: red;">as of now, relies on external API that does not allow blogPosts updates in edit mode; therefore, will be replaced with .NET Core backend in the near future</span></small>
