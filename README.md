@@ -31,7 +31,7 @@ See more information about each project below.
 
 - **keywords:** 
   - composing of customer-related stats filters, the result is sorted and logged into the console,
-  - Reactive forms – FormBuilder, FormGroum, FormControl, FormArray,
+  - Reactive forms – FormBuilder, FormGroup, FormControl, FormArray,
   - NgPrime UI library
 
 ## #3 USD Converter (ENG and CZE) 
