@@ -1,7 +1,7 @@
 # Angular Projects
 
 ## ## Quick Overview
-- **#1 Ng Blog**: **[[ live demo ](https://gorj00.github.io/demos/blog/)]**   ·   **[[ Angular code ](https://github.com/gorj00/Angular-Blog)]**,
+- **#1 Ng Blog**: **[[ Angular code ](https://github.com/gorj00/Angular-Blog)]**,
 - **#2 Customer filter template**: **[[ live demo ](https://gorj00.github.io/demos/customer-filter/)]**   ·   **[[ Angular code ](https://github.com/gorj00/Angular-Customer-Filter)]**,
 - **#3 USD Converter**: **[[ live demo ](https://gorj00.github.io/demos/usd-converter/)]**   ·   **[[ Angular code ](https://github.com/gorj00/Angular-USDconverter)]**,
 - **#4 Movie Quiz**: **[[ live demo ](https://gorj00.github.io/demos/movie-quiz/)]**   ·   **[[ Angular code ](./Angular-MovieQuiz)]**,
@@ -10,7 +10,7 @@ See more information about each project below.
 <hr />
 
 ## #1 Ng Blog
-**[[ LIVE DEMO ](https://gorj00.github.io/demos/blog/)]**   ·   **[[ ANGULAR CODE ](https://github.com/gorj00/Angular-Blog)]**
+**[[ ANGULAR CODE ](https://github.com/gorj00/Angular-Blog)]**
 
 - **keywords:** 
   - <strong>UI</strong>: Angular Material
