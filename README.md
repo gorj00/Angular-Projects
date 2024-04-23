@@ -16,6 +16,10 @@ See more information about each project below.
   - Reactive forms – FormBuilder, FormGroup, FormControl, FormArray,
   - NgPrime UI library
 
+- **usage demo:**
+
+<img src="./img/filter_demo.gif" width="100%">
+
 ## #2 USD Converter (ENG and CZE) 
 **[[ LIVE DEMO ](https://gorj00.github.io/demos/usd-converter/)]**   ·   **[[ ANGULAR CODE ](https://github.com/gorj00/Angular-USDconverter)]**
 
