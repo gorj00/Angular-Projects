@@ -1,14 +1,29 @@
 # Angular Projects
 
 ## ## Quick Overview
-- **#1 Customer filter template**: **[[ live demo ](https://gorj00.github.io/demos/customer-filter/)]**   ·   **[[ Angular code ](https://github.com/gorj00/Angular-Customer-Filter)]**,
-- **#2 USD Converter**: **[[ live demo ](https://gorj00.github.io/demos/usd-converter/)]**   ·   **[[ Angular code ](https://github.com/gorj00/Angular-USDconverter)]**,
-- **#3 Movie Quiz**: **[[ live demo ](https://gorj00.github.io/demos/movie-quiz/)]**   ·   **[[ Angular code ](./Angular-MovieQuiz)]**,
+- **#1 Employee Manager**: **[[ live demo ](https://ashy-grass-05653e71e-preview.westus2.5.azurestaticapps.net/)]**   ·   **[[ Angular and .NET Core code ](https://github.com/gorj00/Angular---.NET-Core-8-API---EmployeeManager)]**,
+- **#2 Customer filter template**: **[[ live demo ](https://gorj00.github.io/demos/customer-filter/)]**   ·   **[[ Angular code ](https://github.com/gorj00/Angular-Customer-Filter)]**,
+- **#3 USD Converter**: **[[ live demo ](https://gorj00.github.io/demos/usd-converter/)]**   ·   **[[ Angular code ](https://github.com/gorj00/Angular-USDconverter)]**,
+- **#4 Movie Quiz**: **[[ live demo ](https://gorj00.github.io/demos/movie-quiz/)]**   ·   **[[ Angular code ](./Angular-MovieQuiz)]**,
+
 
 See more information about each project below.
 <hr />
 
-## #1 Customer Filter Template
+
+## #1 Employee Manager
+**[[ LIVE DEMO ](https://ashy-grass-05653e71e-preview.westus2.5.azurestaticapps.net/)]**   ·   **[[ ANGULAR and .NET CORE CODE ](https://github.com/gorj00/Angular---.NET-Core-8-API---EmployeeManager)]**
+
+- **keywords:** 
+  - Deployed on Azure
+  - REST API with .NET Core + MS SQL database backend (inside project as well)
+  - Dependency injection
+  - RxJS
+  - Reactive forms
+  - Angular 17 standalone components
+  - PrimeNG UI components library
+
+## #2 Customer Filter Template
 **[[ LIVE DEMO ](https://gorj00.github.io/demos/customer-filter/)]**   ·   **[[ ANGULAR CODE ](https://github.com/gorj00/Angular-Customer-Filter)]**
 
 - **keywords:** 
@@ -20,7 +35,7 @@ See more information about each project below.
 
 <img src="./img/filter_demo.gif" width="100%">
 
-## #2 USD Converter (ENG and CZE) 
+## #3 USD Converter (ENG and CZE) 
 **[[ LIVE DEMO ](https://gorj00.github.io/demos/usd-converter/)]**   ·   **[[ ANGULAR CODE ](https://github.com/gorj00/Angular-USDconverter)]**
 
 - **keywords:** 
@@ -32,7 +47,7 @@ See more information about each project below.
   - Exchange rates API
   - ngx-translate — switching between English and Czech
 
-## #3 Movie Quiz
+## #4 Movie Quiz
 **[[ LIVE DEMO ](https://gorj00.github.io/demos/movie-quiz/)]**   ·   **[[ ANGULAR CODE ](./Angular-MovieQuiz)]**
 
 - **keywords:** 
